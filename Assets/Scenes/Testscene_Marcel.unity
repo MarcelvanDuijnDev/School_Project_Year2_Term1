@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 40839416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20.137938, y: 20.137938, z: 20.137938}
+  m_LocalScale: {x: 117.45261, y: 117.45261, z: 117.45261}
   m_Children:
   - {fileID: 874130229}
   - {fileID: 400798653}
@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183422743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15.2}
+  m_LocalPosition: {x: 0, y: 0, z: -61.5}
   m_LocalScale: {x: 2.483904, y: 0.91586, z: 0.91586}
   m_Children: []
   m_Father: {fileID: 1712914590}
@@ -548,7 +548,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 4d1b40ea3416dd24fb7601613bfa3d2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -750,7 +750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304682295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -42.08}
+  m_LocalPosition: {x: 0, y: 1, z: -88.380005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1712914590}
@@ -763,12 +763,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304682295}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e77e258f8f6e14eb7227fd47c07932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CameraSpeed: 0.5
+  _ScrollSpeed: 10
   _CameraOffset: {x: 0, y: 0, z: 0}
   _Target: {fileID: 40839420}
   _Radius: 5
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e242548d40751e847a2ef11a82412854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationSpeed: {x: 0, y: -10, z: 0}
+  _RotationSpeed: {x: 0, y: -5, z: 0}
 --- !u!4 &1712914590
 Transform:
   m_ObjectHideFlags: 0

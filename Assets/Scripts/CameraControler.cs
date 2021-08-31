@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControler : MonoBehaviour
 {
-    [SerializeField] private float _CameraSpeed = .5f;
+    [SerializeField] private float _ScrollSpeed = 20;
     [SerializeField] private Vector3 _CameraOffset = Vector3.zero;
     [SerializeField] private Transform _Target = null;
 
@@ -22,11 +22,11 @@ public class CameraControler : MonoBehaviour
 
         // Location
         //transform.position =
-        GetRadius();
+        //GetRadius();
 
-        _ScrollWheelInput = Input.mouseScrollDelta.x;
-
-        Debug.Log(Input.mouseScrollDelta.x + Input.mouseScrollDelta.y);
+        _ScrollWheelInput = Input.mouseScrollDelta.y * _ScrollSpeed;
+        transform.Translate(new Vector3(0, 0, _ScrollWheelInput) * Time.deltaTime);
+        _ScrollWheelInput = 0;
     }
 
     void GetRadius()
