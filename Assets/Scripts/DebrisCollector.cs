@@ -17,8 +17,15 @@ public class DebrisCollector : MonoBehaviour
 
         for (int i = 0; i < _ObjectsInRange.Length; i++)
         {
-            _ObjectsInRange[i].transform.position = Vector3.MoveTowards(_ObjectsInRange[i].transform.position, transform.position, _CollectSpeed) * Time.deltaTime;
+            _ObjectsInRange[i].transform.position = Vector3.MoveTowards(_ObjectsInRange[i].transform.position, transform.position, _CollectSpeed);
+
+            if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 0.5f)
+            {
+                GameHandler.DebrisCollected++;
+                _ObjectsInRange[i].gameObject.SetActive(false);
+            }
         }
+
     }
 
     private void OnDrawGizmosSelected()
