@@ -19,7 +19,6 @@ public class DebrisHandler : MonoBehaviour
     [Header("Testing")]
     [SerializeField] private Transform _SpawnPoint = null;
 
-
     void Start()
     {
         DEBRIS = this;

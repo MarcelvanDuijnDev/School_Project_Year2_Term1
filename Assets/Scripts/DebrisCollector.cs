@@ -8,8 +8,8 @@ public class DebrisCollector : MonoBehaviour
     [SerializeField] private float _CollectSpeed;
     [SerializeField] private LayerMask _DebrisLayer;
 
-    [SerializeField] private Collider[] _ObjectsInRange;
-
+    //Objects
+    private Collider[] _ObjectsInRange;
 
     void Update()
     {
