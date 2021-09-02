@@ -7,8 +7,12 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private ObjectPool_Pool[] _ObjectPools = null;
     private List<Transform> _Parents = new List<Transform>();
 
+    public static ObjectPool POOL;
+
     private void Awake()
     {
+        POOL = this;
+
         GameObject emptyobject = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Destroy(emptyobject.GetComponent<MeshRenderer>());
         Destroy(emptyobject.GetComponent<BoxCollider>());
@@ -100,6 +104,28 @@ public class ObjectPool : MonoBehaviour
 
         Debug.Log("No Object Found");
         return null;
+    }
+
+    public int GetActiveObjectAmount(GameObject obj)
+    {
+        int amount = 0;
+        int id = FindObjectPoolID(obj);
+        for (int i = 0; i < _ObjectPools[id]._Objects.Count; i++)
+        {
+            if (_ObjectPools[id]._Objects[i].activeSelf)
+                amount++;
+        }
+        return amount;
+    }
+    public int GetActiveObjectAmount(int id)
+    {
+        int amount = 0;
+        for (int i = 0; i < _ObjectPools[id]._Objects.Count; i++)
+        {
+            if (_ObjectPools[id]._Objects[i].activeSelf)
+                amount++;
+        }
+        return amount;
     }
 
     public List<GameObject> GetAllObjects(GameObject objtype)

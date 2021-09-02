@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] private float _RotationSpeed = 100;
+    [SerializeField] private float _Speed = 50;
 
-    [SerializeField] private float _RotationSpeed;
-    [SerializeField] private float _Speed;
-    [SerializeField] private float _IdleSpeed;
+    [Header("Camera Center")]
+    [SerializeField] private Transform _CameraCenter = null;
 
     void Update()
     {
-
         float rotateinput = -Input.GetAxis("Horizontal") * _RotationSpeed * Time.deltaTime;
         float forwardspeed = -Input.GetAxis("Vertical") * _Speed * Time.deltaTime;
-        
-        transform.Rotate(0, forwardspeed + -_IdleSpeed, rotateinput);
+
+        _CameraCenter.transform.Rotate(0, forwardspeed, rotateinput);
     }
 }

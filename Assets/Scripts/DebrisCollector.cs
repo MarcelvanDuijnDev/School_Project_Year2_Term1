@@ -25,7 +25,6 @@ public class DebrisCollector : MonoBehaviour
                 _ObjectsInRange[i].gameObject.SetActive(false);
             }
         }
-
     }
 
     private void OnDrawGizmosSelected()
