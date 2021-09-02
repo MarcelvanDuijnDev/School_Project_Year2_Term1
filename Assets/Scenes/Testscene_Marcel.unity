@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
+  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1322,6 +1322,7 @@ Transform:
   - {fileID: 2015314712}
   - {fileID: 1272938267}
   - {fileID: 1885327214}
+  - {fileID: 1089210850}
   m_Father: {fileID: 1290587897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1382,7 +1383,7 @@ GameObject:
   - component: {fileID: 1089210848}
   - component: {fileID: 1089210851}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,10 +1447,10 @@ Transform:
   m_GameObject: {fileID: 1089210846}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -82.599976}
-  m_LocalScale: {x: 91.91211, y: 70.560005, z: 91.9121}
+  m_LocalScale: {x: 91.91211, y: 70.560005, z: 91.912094}
   m_Children: []
-  m_Father: {fileID: 1290587897}
-  m_RootOrder: 2
+  m_Father: {fileID: 961423008}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1089210851
 MonoBehaviour:
@@ -1965,7 +1966,6 @@ Transform:
   m_Children:
   - {fileID: 1712914590}
   - {fileID: 961423008}
-  - {fileID: 1089210850}
   m_Father: {fileID: 762384159}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
