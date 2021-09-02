@@ -6,30 +6,41 @@ public class LaunchEffect : MonoBehaviour
 {
 
     [SerializeField] private float _SecondsAlive;
+    [SerializeField] private RocketLaunch _RocketPort;
 
     private float _SchrinkSpeed;
+
+    private int _State;
 
     private void Start()
     {
         _SchrinkSpeed = transform.localScale.x / _SecondsAlive;
     }
 
-    private void OnEnable()
+
+    public void Launch()
     {
-        transform.localScale = new Vector3(100,70,100);
+        transform.localScale = new Vector3(100, 70, 100);
+        _State = 1;
     }
 
     void Update()
     {
-        /*
-        if (transform.localScale.x > 0)
-            transform.localScale -= new Vector3(_SchrinkSpeed, 0, _SchrinkSpeed) * Time.deltaTime;
-        else
+        switch(_State)
         {
-            gameObject.SetActive(false);
+            case 1:
+                if (transform.localScale.x > 0)
+                    transform.localScale -= new Vector3(_SchrinkSpeed, 0, _SchrinkSpeed) * Time.deltaTime;
+                else
+                {
+                    gameObject.SetActive(false);
+                    _State++;
+                }
+                break;
+            case 2:
+                _RocketPort.LaunchRocket();
+                _State = 0;
+                break;
         }
-        */
-
-
     }
 }

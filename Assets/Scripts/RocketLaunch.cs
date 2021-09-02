@@ -40,7 +40,7 @@ public class RocketLaunch : MonoBehaviour
     }
 
 
-    void LaunchRocket()
+    public void LaunchRocket()
     {
         //set flying direction
         launchDirection = Vector3.up;

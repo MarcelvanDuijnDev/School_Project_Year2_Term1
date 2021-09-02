@@ -6,9 +6,6 @@ public class Movement : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _RotationSpeed = 100;
-    [SerializeField] private float _Speed = 50;
-    [SerializeField] private float _IdleSpeed = 2;
-
     [SerializeField] private float _Acceleration;
     [SerializeField] private float _CurrentSpeed;
     [SerializeField] private Vector2 _MinMaxSpeed;
@@ -19,7 +16,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float rotateinput = -Input.GetAxis("Horizontal") * _RotationSpeed * Time.deltaTime;
-        _CurrentSpeed = -Input.GetAxis("Vertical") * _Acceleration * Time.deltaTime;
+        _CurrentSpeed += Input.GetAxis("Vertical") * _Acceleration * Time.deltaTime;
 
         if (_CurrentSpeed <= _MinMaxSpeed.x)
             _CurrentSpeed = _MinMaxSpeed.x;
