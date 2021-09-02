@@ -1510,8 +1510,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183422743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -61.5}
-  m_LocalScale: {x: 2.483904, y: 0.91586, z: 0.91586}
+  m_LocalPosition: {x: 0, y: 0.69, z: -60.91}
+  m_LocalScale: {x: 0.19780818, y: 0.072935425, z: 0.072935425}
   m_Children: []
   m_Father: {fileID: 1712914590}
   m_RootOrder: 1
@@ -1953,7 +1953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304682295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -88.380005}
+  m_LocalPosition: {x: 0, y: 1, z: -63.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1712914590}
@@ -2377,7 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18ea6b6068d2964399c9d4a6be66fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Earth: {fileID: 0}
+  Earth: {fileID: 1290587896}
   _DebrisCollected: {fileID: 1859034698}
   _DebrisInSpace: {fileID: 1249845372}
 --- !u!114 &1695090226
@@ -2409,8 +2409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a9938db8d1533249a5574eae35487a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationSpeed: 100
-  _Speed: 50
+  _RotationSpeed: 5
+  _Speed: 2
+  _IdleSpeed: 0.1
   _CameraCenter: {fileID: 1712914590}
 --- !u!114 &1695090228
 MonoBehaviour:

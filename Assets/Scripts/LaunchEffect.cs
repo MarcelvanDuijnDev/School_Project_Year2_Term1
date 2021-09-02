@@ -21,11 +21,15 @@ public class LaunchEffect : MonoBehaviour
 
     void Update()
     {
+        /*
         if (transform.localScale.x > 0)
             transform.localScale -= new Vector3(_SchrinkSpeed, 0, _SchrinkSpeed) * Time.deltaTime;
         else
         {
             gameObject.SetActive(false);
         }
+        */
+
+
     }
 }

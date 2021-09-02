@@ -7,9 +7,17 @@ public class GameHandler : MonoBehaviour
 {
 
     public static int DebrisCollected;
+    public static GameHandler HANDLER;
+
+    public GameObject Earth;
 
     [SerializeField] private TextMeshProUGUI _DebrisCollected;
     [SerializeField] private TextMeshProUGUI _DebrisInSpace;
+
+    private void Awake()
+    {
+        HANDLER = this;
+    }
 
     void Update()
     {

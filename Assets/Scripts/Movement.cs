@@ -7,6 +7,11 @@ public class Movement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _RotationSpeed = 100;
     [SerializeField] private float _Speed = 50;
+    [SerializeField] private float _IdleSpeed = 2;
+
+    [SerializeField] private float _Acceleration;
+    [SerializeField] private float _CurrentSpeed;
+    [SerializeField] private Vector2 _MinMaxSpeed;
 
     [Header("Camera Center")]
     [SerializeField] private Transform _CameraCenter = null;
@@ -14,8 +19,13 @@ public class Movement : MonoBehaviour
     void Update()
     {
         float rotateinput = -Input.GetAxis("Horizontal") * _RotationSpeed * Time.deltaTime;
-        float forwardspeed = -Input.GetAxis("Vertical") * _Speed * Time.deltaTime;
+        _CurrentSpeed = -Input.GetAxis("Vertical") * _Acceleration * Time.deltaTime;
 
-        _CameraCenter.transform.Rotate(0, forwardspeed, rotateinput);
+        if (_CurrentSpeed <= _MinMaxSpeed.x)
+            _CurrentSpeed = _MinMaxSpeed.x;
+        if (_CurrentSpeed >= _MinMaxSpeed.y)
+            _CurrentSpeed = _MinMaxSpeed.y;
+
+        _CameraCenter.transform.Rotate(0, _CurrentSpeed, rotateinput);
     }
 }
