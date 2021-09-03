@@ -47,9 +47,10 @@ public class RocketHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Astroid")
+        if (other.gameObject.tag == "Astroid")
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             SpawnDebris(amountOfDebris);
             Debug.Log("collision");
         }
