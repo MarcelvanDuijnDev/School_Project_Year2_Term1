@@ -20,12 +20,17 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private List<LaunchEffect> _LaunchPort = new List<LaunchEffect>();
 
     [Header("Rocket Launch Settings")]
-    [SerializeField] private float _LaunchSpeed;
+    [SerializeField] private float _TimeBetweenLaunches;
     private float _Timer;
 
     private void Awake()
     {
         HANDLER = this;
+    }
+
+    private void Start()
+    {
+        _Timer = _TimeBetweenLaunches;
     }
 
     void Update()
@@ -36,10 +41,10 @@ public class GameHandler : MonoBehaviour
 
         //Launch
         _Timer += 1 * Time.deltaTime;
-        if(_Timer >= _LaunchSpeed)
+        if(_Timer >= _TimeBetweenLaunches)
         {
             _LaunchPort[Random.Range(0, _LaunchPort.Count)].Launch();
-            _Timer = 0;
+            _Timer = Random.Range(0,_TimeBetweenLaunches * 0.5f);
         }
     }
 }

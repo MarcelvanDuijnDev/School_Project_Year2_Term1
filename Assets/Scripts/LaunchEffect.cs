@@ -11,29 +11,32 @@ public class LaunchEffect : MonoBehaviour
     private float _SchrinkSpeed;
 
     private int _State;
+    private float _CircleScale = 120;
 
     private void Start()
     {
-        _SchrinkSpeed = transform.localScale.x / _SecondsAlive;
+        _SchrinkSpeed = _CircleScale / _SecondsAlive;
     }
 
 
     public void Launch()
     {
-        transform.localScale = new Vector3(100, 70, 100);
-        _State = 1;
+        if (_State == 0)
+        {
+            transform.localScale = new Vector3(_CircleScale, 70, _CircleScale);
+            _State = 1;
+        }
     }
 
     void Update()
     {
-        switch(_State)
+        switch (_State)
         {
             case 1:
                 if (transform.localScale.x > 0)
                     transform.localScale -= new Vector3(_SchrinkSpeed, 0, _SchrinkSpeed) * Time.deltaTime;
                 else
                 {
-                    gameObject.SetActive(false);
                     _State++;
                 }
                 break;
