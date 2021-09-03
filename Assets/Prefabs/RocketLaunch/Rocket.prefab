@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3172659734523721816}
   - component: {fileID: 1467311057419992339}
   - component: {fileID: 8344515193016263286}
+  - component: {fileID: 908568732}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -112,6 +113,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSpeed: 10
+  amountOfDebris: 15
+--- !u!54 &908568732
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366790979342261157}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1491077038979385355
 GameObject:
   m_ObjectHideFlags: 0
