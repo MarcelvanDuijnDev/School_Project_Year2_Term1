@@ -94,7 +94,6 @@ public class ObjectPool : MonoBehaviour
 
         if (!checkfreeobj)
         {
-            _ObjectPools[id]._Objects.Clear();
             freeObject = (GameObject)Instantiate(_ObjectPools[id]._Prefab, new Vector3(999,999,999), Quaternion.identity);
             freeObject.transform.parent = _Parents[id];
             freeObject.SetActive(setactive);

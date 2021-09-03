@@ -2981,7 +2981,7 @@ MonoBehaviour:
   - {fileID: 1075637170}
   - {fileID: 98310335}
   - {fileID: 1174424953}
-  _TimeBetweenLaunches: 100
+  _TimeBetweenLaunches: 30
 --- !u!114 &1695090226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2995,6 +2995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _EarthCenter: {fileID: 1272938267}
+  _Radius: 62.6
+  _Angle: 102.3
   _MinMaxSpeed: {x: 0.01, y: 0.05}
   _DebrisPrefab: {fileID: 2699891113366729359, guid: 419687d0e46a336478e9f5693e483a38, type: 3}
   _Debris: []
