@@ -11,7 +11,7 @@ public class LaunchEffect : MonoBehaviour
     private float _SchrinkSpeed;
 
     private int _State;
-    private float _CircleScale = 120;
+    private float _CircleScale = 100;
 
     private void Start()
     {

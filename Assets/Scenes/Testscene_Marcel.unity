@@ -2981,7 +2981,7 @@ MonoBehaviour:
   - {fileID: 1075637170}
   - {fileID: 98310335}
   - {fileID: 1174424953}
-  _TimeBetweenLaunches: 5
+  _TimeBetweenLaunches: 100
 --- !u!114 &1695090226
 MonoBehaviour:
   m_ObjectHideFlags: 0
