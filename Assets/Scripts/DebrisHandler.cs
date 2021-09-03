@@ -8,6 +8,8 @@ public class DebrisHandler : MonoBehaviour
 
     [Header("CenterPoint")]
     [SerializeField] private Transform _EarthCenter;
+    [SerializeField] private float _Radius;
+    [SerializeField] private float _Angle;
 
     [Header("Settings")]
     [SerializeField] private Vector2 _MinMaxSpeed;
@@ -15,9 +17,6 @@ public class DebrisHandler : MonoBehaviour
 
     [Header("Debris")]
     [SerializeField] private List<DebrisObject> _Debris = new List<DebrisObject>();
-
-    [Header("Testing")]
-    [SerializeField] private Transform _SpawnPoint = null;
 
     void Start()
     {
@@ -30,25 +29,39 @@ public class DebrisHandler : MonoBehaviour
         {
             _Debris[i].DebrisObj.transform.RotateAround(_EarthCenter.position, _Debris[i].MoveDirection, _Debris[i].Speed);
         }
-
-
-        //Testing
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Add_Debris(_SpawnPoint.transform);
-        }
     }
 
     public void Add_Debris(Transform startpoint)
     {
         GameObject newdebris = ObjectPool.POOL.GetObject(_DebrisPrefab);
-        newdebris.transform.position = _SpawnPoint.position;
+        newdebris.transform.position = startpoint.position;
         DebrisObject newdebrisobj = new DebrisObject();
         newdebrisobj.DebrisObj = newdebris.transform;
         newdebrisobj.Speed = Random.Range(_MinMaxSpeed.x, _MinMaxSpeed.y);
         newdebrisobj.MoveDirection = new Vector3(Random.Range(-360,360), Random.Range(-360, 360), Random.Range(-360, 360));
         _Debris.Add(newdebrisobj);
     }
+
+    /*
+    private void OnDrawGizmos()
+    {
+        List<Vector3> points = new List<Vector3>();
+        for (int i = 0; i < 360; i++)
+        {
+            Vector3 pos;
+            pos.x = _EarthCenter.position.x + _Radius * Mathf.Sin(i * Mathf.Deg2Rad);
+            pos.y = _EarthCenter.position.y + _Radius * Mathf.Cos(i * Mathf.Deg2Rad);
+            pos.z = _EarthCenter.position.z + _Radius * Mathf.Cos(_Angle * Mathf.Deg2Rad);
+            points.Add(pos);
+        }
+
+        for (int i = 0; i < points.Count; i++)
+        {
+            Gizmos.DrawSphere(points[i], 1);
+        }
+    }
+    */
+    
 }
 
 [System.Serializable]
