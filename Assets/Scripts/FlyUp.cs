@@ -18,7 +18,7 @@ public class RocketHandler : MonoBehaviour
     {
         FlyUp();
 
-        if (_Launched)
+        if (!_Launched)
             if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) >= 10)
             {
                 GameHandler.HANDLER.RocketLaunched();
@@ -58,6 +58,7 @@ public class RocketHandler : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            GameHandler.HANDLER.RocketExploded();
             SpawnDebris(amountOfDebris);
             Debug.Log("collision");
         }
