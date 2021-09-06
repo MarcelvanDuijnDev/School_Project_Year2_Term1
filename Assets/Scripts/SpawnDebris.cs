@@ -7,7 +7,7 @@ public class SpawnDebris : MonoBehaviour
     [SerializeField] private int _SpawnAmount;
     [SerializeField] private Transform _SpawnPoint;
 
-    private bool _Start;
+    private bool _Start = true;
 
     private void Update()
     {
@@ -20,5 +20,11 @@ public class SpawnDebris : MonoBehaviour
             }
             _Start = true;
         }
+    }
+
+    public void Reset()
+    {
+        DebrisHandler.DEBRIS.Reset();
+        _Start = false;
     }
 }

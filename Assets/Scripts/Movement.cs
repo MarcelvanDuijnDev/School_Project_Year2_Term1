@@ -13,6 +13,13 @@ public class Movement : MonoBehaviour
     [Header("Camera Center")]
     [SerializeField] private Transform _CameraCenter = null;
 
+    private Vector3 _StartRotation;
+
+    private void Start()
+    {
+        _StartRotation = transform.eulerAngles;
+    }
+
     void Update()
     {
         float rotateinput = -Input.GetAxis("Horizontal") * _RotationSpeed * Time.deltaTime;
@@ -24,5 +31,11 @@ public class Movement : MonoBehaviour
             _CurrentSpeed = _MinMaxSpeed.y;
 
         _CameraCenter.transform.Rotate(0, _CurrentSpeed, rotateinput);
+    }
+
+    public void Reset()
+    {
+        transform.eulerAngles = _StartRotation;
+        _CurrentSpeed = 0;
     }
 }

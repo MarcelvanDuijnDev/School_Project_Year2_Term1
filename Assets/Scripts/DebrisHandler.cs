@@ -61,7 +61,17 @@ public class DebrisHandler : MonoBehaviour
         }
     }
     */
-    
+
+    public void Reset()
+    {
+        for (int i = 0; i < _Debris.Count; i++)
+        {
+            _Debris[i].DebrisObj.gameObject.SetActive(false);
+        }
+
+        _Debris.Clear();
+    }
+
 }
 
 [System.Serializable]

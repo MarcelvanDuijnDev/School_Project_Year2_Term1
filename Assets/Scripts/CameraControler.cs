@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraControler : MonoBehaviour
 {
+    [Header("Ingame")]
     [SerializeField] private float _ScrollSpeed = 20;
     [SerializeField] private Vector3 _CameraOffset = Vector3.zero;
     [SerializeField] private Transform _Target = null;
@@ -13,8 +14,27 @@ public class CameraControler : MonoBehaviour
 
     private float _ScrollWheelInput;
 
+    [Header("CameraPositions")]
+    [SerializeField] private Transform _IngamePoisition = null;
+    [SerializeField] private Transform _MenuCameraPosition = null;
+
+    private int _CameraState = 0;
+
     void Update()
     {
+        switch(_CameraState)
+        {
+            case 0: //Menu
+                transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10);
+                transform.rotation = Quaternion.LookRotation(_MenuCameraPosition.eulerAngles, Vector3.forward);
+                break;
+            case 1:
+                transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10);
+                transform.rotation = Quaternion.LookRotation(_IngamePoisition.eulerAngles, Vector3.forward);
+                break;
+        }
+
+
         // Lookat planet
         Vector3 rpos = _Target.position - transform.position;
         Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
@@ -37,5 +57,10 @@ public class CameraControler : MonoBehaviour
         pos.y = _Target.transform.position.y + _Angle * Mathf.Cos(ang * Mathf.Deg2Rad);
         pos.z = _Target.transform.position.z;
         transform.position = pos;
+    }
+
+    public void SetCameraState(int state)
+    {
+        _CameraState = state;
     }
 }
