@@ -67,9 +67,10 @@ public class GameHandler : MonoBehaviour
                 _LaunchPort[Random.Range(0, _LaunchPort.Count)].Launch();
                 _Timer = Random.Range(0, _TimeBetweenLaunches * 0.5f);
             }
-
-            _HUDScreen.SetActive(false);
         }
+
+        if(_GameState == GameStates.Menu)
+            _HUDScreen.SetActive(false);
         else
             _HUDScreen.SetActive(true);
 
@@ -81,12 +82,14 @@ public class GameHandler : MonoBehaviour
             _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
     }
 
-    public void RockedLaunched()
+    public void RocketLaunched()
     {
         _MadeFails = 0;
+        Debug.Log("Rocket Launched");
     }
-    public void RockedExploded()
+    public void RocketExploded()
     {
+        Debug.Log("Rocket Exploded");
         _MadeFails++;
         if(_MadeFails >= _FailsAllowed)
             _DeathScreen.SetActive(true);
