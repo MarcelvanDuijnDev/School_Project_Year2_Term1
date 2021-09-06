@@ -12,11 +12,18 @@ public class RocketHandler : MonoBehaviour
     [SerializeField] int amountOfDebris;
 
 
-
+    private bool _Launched = false;
 
     void Update()
     {
         FlyUp();
+
+        if (!_Launched)
+            if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) >= 10)
+            {
+                GameHandler.HANDLER.RocketLaunched();
+                _Launched = true;
+            }
     }
 
 
@@ -51,6 +58,7 @@ public class RocketHandler : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            GameHandler.HANDLER.RocketExploded();
             SpawnDebris(amountOfDebris);
             Debug.Log("collision");
         }

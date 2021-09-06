@@ -26,11 +26,9 @@ public class CameraControler : MonoBehaviour
         {
             case 0: //Menu
                 transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10);
-                transform.rotation = Quaternion.LookRotation(_MenuCameraPosition.eulerAngles, Vector3.forward);
                 break;
             case 1:
                 transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10);
-                transform.rotation = Quaternion.LookRotation(_IngamePoisition.eulerAngles, Vector3.forward);
                 break;
         }
 
