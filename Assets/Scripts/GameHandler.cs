@@ -5,7 +5,6 @@ using TMPro;
 
 public class GameHandler : MonoBehaviour
 {
-
     public enum GameStates {Menu,Ingame,Pauzed,Dead }
     [Header("CurrentGameState")]
     [SerializeField] private GameStates _GameState = new GameStates();
@@ -30,11 +29,13 @@ public class GameHandler : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _DebrisCollected;
     [SerializeField] private TextMeshProUGUI _DebrisInSpace;
+    [SerializeField] private TextMeshProUGUI _Mistakes;
 
     [Header("LaunchPlatforms/Settings")]
     [SerializeField] private List<LaunchEffect> _LaunchPort = new List<LaunchEffect>();
     [SerializeField] private float _TimeBetweenLaunches;
 
+    private GameHandler_Stats _Stats;
     private Movement _PlayerMovement;
     private float _Timer;
 
@@ -45,6 +46,7 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
+        _Stats = new GameHandler_Stats();
         _PlayerMovement = GetComponent<Movement>();
 
         _DeathScreen.SetActive(false);
@@ -54,11 +56,12 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         //Check Gameover
-        if (!_DeathScreen.activeSelf || !_PauzeScreen.activeSelf)
+        if (_GameState == GameStates.Ingame)
         {
             //UI
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
             _DebrisInSpace.text = "Debris in space: " + ObjectPool.POOL.GetActiveObjectAmount(0);
+            _Mistakes.text = "Misstakes: " + _MadeFails.ToString();
 
             //Launch
             _Timer += 1 * Time.deltaTime;
@@ -78,21 +81,29 @@ public class GameHandler : MonoBehaviour
         if (_DeathScreen.activeSelf)
             _DeathScreen.SetActive(true);
 
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
-            _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
+        if (_GameState == GameStates.Ingame)
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+                _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
+
+        //Check GameOver
+        if(_MadeFails > _FailsAllowed)
+        {
+            _GameState = GameStates.Dead;
+            _DeathScreen.SetActive(true);
+        }
     }
 
     public void RocketLaunched()
     {
         _MadeFails = 0;
-        Debug.Log("Rocket Launched");
+        Debug.Log("Rocket Launched --- Fails: " + _MadeFails.ToString());
     }
     public void RocketExploded()
     {
-        Debug.Log("Rocket Exploded");
         _MadeFails++;
         if(_MadeFails >= _FailsAllowed)
             _DeathScreen.SetActive(true);
+        Debug.Log("Rocket Exploded --- Fails: " + _MadeFails.ToString());
     }
 
     public void Restart()
@@ -125,4 +136,12 @@ public class GameHandler : MonoBehaviour
         DebrisCollected = 0;
         ResetUI();
     }
+}
+
+[System.Serializable]
+public class GameHandler_Stats
+{
+    public int Total_Debris;
+    public int Total_DebrisCollected;
+    
 }
