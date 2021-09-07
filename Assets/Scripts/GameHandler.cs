@@ -42,13 +42,12 @@ public class GameHandler : MonoBehaviour
     private void Awake()
     {
         HANDLER = this;
+        _Stats = new GameHandler_Stats();
+        _PlayerMovement = GetComponent<Movement>();
     }
 
     private void Start()
     {
-        _Stats = new GameHandler_Stats();
-        _PlayerMovement = GetComponent<Movement>();
-
         _DeathScreen.SetActive(false);
         _PauzeScreen.SetActive(false);
     }
@@ -93,6 +92,7 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+    //Rocket Logic
     public void RocketLaunched()
     {
         _MadeFails = 0;
@@ -106,6 +106,7 @@ public class GameHandler : MonoBehaviour
         Debug.Log("Rocket Exploded --- Fails: " + _MadeFails.ToString());
     }
 
+    //UI Buttons
     public void Restart()
     {
         _GameState = GameStates.Ingame;
@@ -123,7 +124,7 @@ public class GameHandler : MonoBehaviour
         ResetUI();
     }
 
-
+    //Gameloop
     void ResetUI()
     {
         _PauzeScreen.SetActive(false);
@@ -135,6 +136,14 @@ public class GameHandler : MonoBehaviour
         _SpawnDebris.Reset();
         DebrisCollected = 0;
         ResetUI();
+    }
+
+    //GameSettings
+    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed)
+    {
+        _PlayerMovement.Set_Settings(movementincrease,rotationspeed,minmaxspeed);
+        _SpawnDebris.Set_Settings(debrisstart);
+        _FailsAllowed = mistakesallowed;
     }
 }
 

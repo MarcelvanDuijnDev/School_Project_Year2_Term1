@@ -27,4 +27,9 @@ public class SpawnDebris : MonoBehaviour
         DebrisHandler.DEBRIS.Reset();
         _Start = false;
     }
+
+    public void Set_Settings(int debrisamount)
+    {
+        _SpawnAmount = debrisamount;
+    }
 }
