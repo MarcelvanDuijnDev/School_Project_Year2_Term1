@@ -139,11 +139,12 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed)
+    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed,minmaxspeed);
         _SpawnDebris.Set_Settings(debrisstart);
         _FailsAllowed = mistakesallowed;
+        _TimeBetweenLaunches = secondsbetweenrockets;
     }
 }
 

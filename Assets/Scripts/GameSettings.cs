@@ -13,11 +13,13 @@ public class GameSettings : MonoBehaviour
     public int MistakesAllowed = 2;
 
     [Header("Gameplay")]
+    public float SecondsBetweenRockets = 50;
+    public float SecondsBetweenRocketsIncrease = 0.1f;
     public int StartDebris = 2000;
 
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, MinMaxSpeed, StartDebris, MistakesAllowed);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, MinMaxSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets);
     }
 }
