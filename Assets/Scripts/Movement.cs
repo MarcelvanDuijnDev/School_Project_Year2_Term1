@@ -38,4 +38,11 @@ public class Movement : MonoBehaviour
         transform.eulerAngles = _StartRotation;
         _CurrentSpeed = 0;
     }
+
+    public void Set_Settings(float movement, float rotationspeed, Vector2 minmaxspeed)
+    {
+        _Acceleration = movement;
+        _RotationSpeed = rotationspeed;
+        _MinMaxSpeed = minmaxspeed;
+    }
 }
