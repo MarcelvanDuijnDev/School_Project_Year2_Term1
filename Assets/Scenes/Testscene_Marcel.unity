@@ -6597,7 +6597,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8701,7 +8701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: -46}
+  m_AnchoredPosition: {x: -0.00024414062, y: -46}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1249845372
@@ -10499,7 +10499,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ObjectPools:
   - _Name: Astroids
-    _Prefab: {fileID: 2699891113366729359, guid: 419687d0e46a336478e9f5693e483a38, type: 3}
+    _Prefab: {fileID: 5141760459443839057, guid: 2e31da156e04ae04091993b0f01ede4b, type: 3}
+    _Amount: 1000
+    _Objects: []
+  - _Name: Astroids
+    _Prefab: {fileID: 8363959006563676454, guid: 3fc19dffb5841bf48ab52408d4e0ea13, type: 3}
+    _Amount: 1000
+    _Objects: []
+  - _Name: Astroids
+    _Prefab: {fileID: 2708862359528392863, guid: 2f600c3b575bb184ebb71fe4d0d81965, type: 3}
+    _Amount: 1000
+    _Objects: []
+  - _Name: Astroids
+    _Prefab: {fileID: 1923578193559907202, guid: c6743effcf327554cb65ffacd3172c84, type: 3}
     _Amount: 1000
     _Objects: []
 --- !u!4 &1695090223
@@ -10557,6 +10569,8 @@ MonoBehaviour:
   - {fileID: 98310335}
   - {fileID: 1174424953}
   _TimeBetweenLaunches: 50
+  _MinTimeBetweenLaunches: 10
+  _TimeBetweenLaunches_Increase: 0.1
 --- !u!114 &1695090226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10574,7 +10588,10 @@ MonoBehaviour:
   _Angle: 102.3
   _MinMaxSpeed: {x: 0.01, y: 0.05}
   _DebrisPrefab:
-  - {fileID: 2699891113366729359, guid: 419687d0e46a336478e9f5693e483a38, type: 3}
+  - {fileID: 5141760459443839057, guid: 2e31da156e04ae04091993b0f01ede4b, type: 3}
+  - {fileID: 8363959006563676454, guid: 3fc19dffb5841bf48ab52408d4e0ea13, type: 3}
+  - {fileID: 2708862359528392863, guid: 2f600c3b575bb184ebb71fe4d0d81965, type: 3}
+  - {fileID: 1923578193559907202, guid: c6743effcf327554cb65ffacd3172c84, type: 3}
   _Debris: []
 --- !u!114 &1695090227
 MonoBehaviour:
@@ -11149,7 +11166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1859034698
@@ -11661,7 +11678,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &2016776216
 Canvas:
   m_ObjectHideFlags: 0

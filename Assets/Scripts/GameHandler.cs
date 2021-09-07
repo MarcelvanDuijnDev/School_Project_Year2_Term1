@@ -33,10 +33,13 @@ public class GameHandler : MonoBehaviour
 
     [Header("LaunchPlatforms/Settings")]
     [SerializeField] private List<LaunchEffect> _LaunchPort = new List<LaunchEffect>();
-    [SerializeField] private float _TimeBetweenLaunches;
+    [SerializeField] private float _TimeBetweenLaunches = 50;
+    [SerializeField] private float _MinTimeBetweenLaunches = 10;
+    [SerializeField] private float _TimeBetweenLaunches_Increase = 0.1f;
 
     private GameHandler_Stats _Stats;
     private Movement _PlayerMovement;
+    private float _CurrentTimeBetweenLaunches;
     private float _Timer;
 
     private void Awake()
@@ -50,6 +53,8 @@ public class GameHandler : MonoBehaviour
     {
         _DeathScreen.SetActive(false);
         _PauzeScreen.SetActive(false);
+
+        _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
     }
 
     void Update()
@@ -69,6 +74,9 @@ public class GameHandler : MonoBehaviour
                 _LaunchPort[Random.Range(0, _LaunchPort.Count)].Launch();
                 _Timer = Random.Range(0, _TimeBetweenLaunches * 0.5f);
             }
+
+            if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
+                _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase * Time.deltaTime;
         }
 
         if(_GameState == GameStates.Menu)
