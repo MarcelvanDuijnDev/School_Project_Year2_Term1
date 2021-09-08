@@ -73,7 +73,7 @@ public class GameHandler : MonoBehaviour
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
             int activedebris = ObjectPool.POOL.GetActiveObjectAmount(0) + ObjectPool.POOL.GetActiveObjectAmount(1) + ObjectPool.POOL.GetActiveObjectAmount(2) + ObjectPool.POOL.GetActiveObjectAmount(3);
             _DebrisInSpace.text = "Debris in space: " + activedebris.ToString();
-            _Mistakes.text = "Misstakes: " + _MadeFails.ToString();
+            _Mistakes.text = "Mistakes: " + _MadeFails.ToString();
 
             //Launch
             _Timer += 1 * Time.deltaTime;
@@ -150,6 +150,7 @@ public class GameHandler : MonoBehaviour
         _GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
         _Timer = _CurrentTimeBetweenLaunches - 10;
+        _MadeFails = 0;
         _TimePlaying = 0;
         ResetGame();
     }

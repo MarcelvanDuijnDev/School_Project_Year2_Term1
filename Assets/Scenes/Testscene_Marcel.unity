@@ -2275,16 +2275,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606276846e94d55469d60b1cdf37d6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SettingsID: Default
+  SettingsID: nametoidentifysavedata
   MovementSpeed: 0.02
   RotationSpeed: 20
-  MinMaxSpeed: {x: -0.05, y: 0.1}
+  MinMaxSpeed: {x: -0.05, y: 10000}
   MistakesAllowed: 2
   SecondsBetweenRockets: 50
   SecondsBetweenRocketsIncrease: 0.5
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
-  SkipTransition: 0
+  SkipTransition: 1
 --- !u!4 &779602913
 Transform:
   m_ObjectHideFlags: 0
@@ -14583,7 +14583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1450367013
 Transform:
   m_ObjectHideFlags: 0
