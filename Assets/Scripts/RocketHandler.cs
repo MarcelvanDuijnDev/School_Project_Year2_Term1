@@ -25,6 +25,11 @@ public class RocketHandler : MonoBehaviour
                 DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketsLaunched++;
                 _Launched = true;
             }
+
+        if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) >= 1000)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 

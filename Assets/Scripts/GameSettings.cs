@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
+
+    public static GameSettings SETTINGS;
+
     [Header("Settings ID")]
     public string SettingsID = "Default";
 
@@ -26,6 +29,10 @@ public class GameSettings : MonoBehaviour
     [Header("Camera")]
     public bool SkipTransition = false;
 
+    private void Awake()
+    {
+        SETTINGS = this;
+    }
 
     void Start()
     {

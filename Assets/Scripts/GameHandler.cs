@@ -130,6 +130,18 @@ public class GameHandler : MonoBehaviour
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = _TimePlaying;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DebrisCollected = DebrisCollected;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].SettingsID = _PlayTestID;
+
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_MovementSpeed = GameSettings.SETTINGS.MovementSpeed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_MinMaxMovement = GameSettings.SETTINGS.MinMaxSpeed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_RotationSpeed = GameSettings.SETTINGS.RotationSpeed;
+
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_StartDebris = GameSettings.SETTINGS.StartDebris;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_MinMaxDebrisSpeed = GameSettings.SETTINGS.MinMaxDebrisSpeed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_MistakesAllowed = GameSettings.SETTINGS.MistakesAllowed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_SecondsBetweenLaunch = GameSettings.SETTINGS.SecondsBetweenRockets;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_SecondsBetweenLaunchIncrease = GameSettings.SETTINGS.SecondsBetweenRocketsIncrease;
+
+
             DataHandler.STATS.SaveData();
 
             //Reset RocketLaunchPorts
