@@ -123,87 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &19216460
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 20.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368867427896374922, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368867427896374922, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.833
-      objectReference: {fileID: 0}
-    - target: {fileID: 1368867427896374923, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5eeab77ce3676994db0270fe656a6fe8, type: 2}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -45.285458
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 159.29707
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -713.02924
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6213103816278038434, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
-      propertyPath: m_Name
-      value: Thruster
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
 --- !u!1 &40839416
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +615,7 @@ Transform:
   - {fileID: 1755394270}
   - {fileID: 2016776217}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237228378
 GameObject:
@@ -2293,7 +2212,7 @@ Transform:
   m_Children:
   - {fileID: 2038956063}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762384158
 GameObject:
@@ -2365,7 +2284,7 @@ MonoBehaviour:
   SecondsBetweenRocketsIncrease: 0.5
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
-  SkipTransition: 1
+  SkipTransition: 0
 --- !u!4 &779602913
 Transform:
   m_ObjectHideFlags: 0
@@ -16784,7 +16703,7 @@ Transform:
   - {fileID: 679865698}
   - {fileID: 1245110100}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2015314712 stripped
 Transform:
