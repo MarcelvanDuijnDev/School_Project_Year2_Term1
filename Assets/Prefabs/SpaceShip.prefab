@@ -1960,12 +1960,16 @@ PrefabInstance:
       value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.14
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368867427896374922, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
       propertyPath: m_LocalPosition.x
