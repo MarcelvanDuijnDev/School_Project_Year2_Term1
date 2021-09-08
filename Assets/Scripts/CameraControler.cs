@@ -18,6 +18,10 @@ public class CameraControler : MonoBehaviour
     [SerializeField] private Transform _IngamePoisition = null;
     [SerializeField] private Transform _MenuCameraPosition = null;
 
+    [Header("Trasition")]
+    [SerializeField] private float _TransitionSpeed = 500;
+    [SerializeField] private bool _SkipTransition = false;
+
     private int _CameraState = 0;
 
     void Update()
@@ -25,10 +29,16 @@ public class CameraControler : MonoBehaviour
         switch(_CameraState)
         {
             case 0: //Menu
-                transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 500 * Time.deltaTime);
+                if (!_SkipTransition)
+                    transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 500 * Time.deltaTime);
+                else
+                    transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10000 * Time.deltaTime);
                 break;
             case 1:
-                transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 500 * Time.deltaTime);
+                if (!_SkipTransition)
+                    transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 500 * Time.deltaTime);
+                else
+                    transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10000 * Time.deltaTime);
                 break;
         }
 
@@ -36,7 +46,7 @@ public class CameraControler : MonoBehaviour
         // Lookat planet
         Vector3 rpos = _Target.position - transform.position;
         Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
-        transform.eulerAngles = new Vector3(lookrotation.eulerAngles.x + _CameraOffset.x, lookrotation.eulerAngles.y + _CameraOffset.y, lookrotation.eulerAngles.z + _CameraOffset.z);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookrotation, 0.1f);
 
         // Location
         //transform.position =
@@ -60,5 +70,10 @@ public class CameraControler : MonoBehaviour
     public void SetCameraState(int state)
     {
         _CameraState = state;
+    }
+
+    public void Set_Settings(bool skiptransition)
+    {
+        _SkipTransition = skiptransition;
     }
 }

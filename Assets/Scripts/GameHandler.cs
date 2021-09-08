@@ -126,10 +126,19 @@ public class GameHandler : MonoBehaviour
         _MadeFails++;
         if (_MadeFails >= _FailsAllowed)
         { 
+            //Set Save Data
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = _TimePlaying;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DebrisCollected = DebrisCollected;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].SettingsID = _PlayTestID;
             DataHandler.STATS.SaveData();
+
+            //Reset RocketLaunchPorts
+            for (int i = 0; i < _LaunchPort.Count; i++)
+            {
+                _LaunchPort[i].Cancel();
+            }
+            _Timer = 0;
+
             _DeathScreen.SetActive(true);
         }
     }
@@ -140,6 +149,7 @@ public class GameHandler : MonoBehaviour
         DataHandler.STATS.CreateNewSave();
         _GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
+        _Timer = _CurrentTimeBetweenLaunches - 10;
         _TimePlaying = 0;
         ResetGame();
     }
@@ -170,11 +180,12 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid)
+    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed,minmaxspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
         _SpawnDebris.Set_Settings(debrisstart);
+        CameraControler.Set_Settings(skiptransition);
 
         _TimeBetweenLaunches = secondsbetweenrockets;
         _FailsAllowed = mistakesallowed;

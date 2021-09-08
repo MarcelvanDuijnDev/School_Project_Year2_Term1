@@ -28,6 +28,12 @@ public class LaunchEffect : MonoBehaviour
         }
     }
 
+    public void Cancel()
+    {
+        transform.localScale = new Vector3(0,transform.localScale.y,0);
+        _State = 0;
+    }
+
     void Update()
     {
         switch (_State)
