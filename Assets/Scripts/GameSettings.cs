@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
     [Header("Settings ID")]
-    public string SettingsID = "nametoidentifysavedata";
+    public string SettingsID = "Default";
 
     [Header("Movement")]
     [Range(0,1)] public float MovementSpeed = 0.02f;
