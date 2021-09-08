@@ -162,6 +162,7 @@ public class GameHandler : MonoBehaviour
         _GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
         _Timer = _CurrentTimeBetweenLaunches - 10;
+        _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
         _MadeFails = 0;
         _TimePlaying = 0;
         ResetGame();
