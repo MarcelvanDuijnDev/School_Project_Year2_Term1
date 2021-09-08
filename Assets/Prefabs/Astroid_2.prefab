@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 167212149650144984}
   - component: {fileID: 6992349215297295786}
   - component: {fileID: 1308741738246861110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Astroid_2
-  m_TagString: Untagged
+  m_TagString: Astroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8363959006563676454}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 1.7981008, y: 0, z: -3.9096086}
-  m_LocalScale: {x: 21.926529, y: 21.926529, z: 21.926529}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,7 +90,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8363959006563676454}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.009722223

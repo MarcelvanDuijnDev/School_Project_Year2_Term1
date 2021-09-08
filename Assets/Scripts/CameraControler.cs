@@ -9,7 +9,7 @@ public class CameraControler : MonoBehaviour
     [SerializeField] private Vector3 _CameraOffset = Vector3.zero;
     [SerializeField] private Transform _Target = null;
 
-    [SerializeField] private float _Radius = 5;
+    //[SerializeField] private float _Radius = 5;
     [SerializeField] [Range(0, 100)] private float _Angle;
 
     private float _ScrollWheelInput;
@@ -25,10 +25,10 @@ public class CameraControler : MonoBehaviour
         switch(_CameraState)
         {
             case 0: //Menu
-                transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10);
+                transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 500 * Time.deltaTime);
                 break;
             case 1:
-                transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10);
+                transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 500 * Time.deltaTime);
                 break;
         }
 
