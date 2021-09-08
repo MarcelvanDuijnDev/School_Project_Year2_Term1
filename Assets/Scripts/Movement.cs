@@ -44,5 +44,6 @@ public class Movement : MonoBehaviour
         _Acceleration = movement;
         _RotationSpeed = rotationspeed;
         _MinMaxSpeed = minmaxspeed;
+        transform.eulerAngles = _StartRotation;
     }
 }

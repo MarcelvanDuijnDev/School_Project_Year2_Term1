@@ -17,6 +17,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private GameObject _DeathScreen = null;
     [SerializeField] private GameObject _PauzeScreen = null;
     [SerializeField] private GameObject _HUDScreen = null;
+    [SerializeField] private GameObject _MenuScreen = null;
 
     public static int DebrisCollected;
     public static GameHandler HANDLER;
@@ -42,6 +43,10 @@ public class GameHandler : MonoBehaviour
     private float _CurrentTimeBetweenLaunches;
     private float _Timer;
 
+    //stats
+    private float _TimePlaying;
+    private string _PlayTestID;
+
     private void Awake()
     {
         HANDLER = this;
@@ -55,6 +60,8 @@ public class GameHandler : MonoBehaviour
         _PauzeScreen.SetActive(false);
 
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
+
+        _Timer = _CurrentTimeBetweenLaunches - 10;
     }
 
     void Update()
@@ -64,12 +71,13 @@ public class GameHandler : MonoBehaviour
         {
             //UI
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
-            _DebrisInSpace.text = "Debris in space: " + ObjectPool.POOL.GetActiveObjectAmount(0);
+            int activedebris = ObjectPool.POOL.GetActiveObjectAmount(0) + ObjectPool.POOL.GetActiveObjectAmount(1) + ObjectPool.POOL.GetActiveObjectAmount(2) + ObjectPool.POOL.GetActiveObjectAmount(3);
+            _DebrisInSpace.text = "Debris in space: " + activedebris.ToString();
             _Mistakes.text = "Misstakes: " + _MadeFails.ToString();
 
             //Launch
             _Timer += 1 * Time.deltaTime;
-            if (_Timer >= _TimeBetweenLaunches)
+            if (_Timer >= _CurrentTimeBetweenLaunches)
             {
                 _LaunchPort[Random.Range(0, _LaunchPort.Count)].Launch();
                 _Timer = Random.Range(0, _TimeBetweenLaunches * 0.5f);
@@ -77,12 +85,20 @@ public class GameHandler : MonoBehaviour
 
             if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
                 _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase * Time.deltaTime;
+
+            _TimePlaying += 1 * Time.deltaTime;
         }
 
-        if(_GameState == GameStates.Menu)
+        if (_GameState == GameStates.Menu)
+        {
             _HUDScreen.SetActive(false);
+            _MenuScreen.SetActive(true);
+        }
         else
+        {
             _HUDScreen.SetActive(true);
+            _MenuScreen.SetActive(false);
+        }
 
 
         if (_DeathScreen.activeSelf)
@@ -93,7 +109,7 @@ public class GameHandler : MonoBehaviour
                 _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
 
         //Check GameOver
-        if(_MadeFails > _FailsAllowed)
+        if (_MadeFails > _FailsAllowed)
         {
             _GameState = GameStates.Dead;
             _DeathScreen.SetActive(true);
@@ -104,21 +120,27 @@ public class GameHandler : MonoBehaviour
     public void RocketLaunched()
     {
         _MadeFails = 0;
-        Debug.Log("Rocket Launched --- Fails: " + _MadeFails.ToString());
     }
     public void RocketExploded()
     {
         _MadeFails++;
-        if(_MadeFails >= _FailsAllowed)
+        if (_MadeFails >= _FailsAllowed)
+        { 
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = _TimePlaying;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DebrisCollected = DebrisCollected;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].SettingsID = _PlayTestID;
+            DataHandler.STATS.SaveData();
             _DeathScreen.SetActive(true);
-        Debug.Log("Rocket Exploded --- Fails: " + _MadeFails.ToString());
+        }
     }
 
     //UI Buttons
     public void Restart()
     {
+        DataHandler.STATS.CreateNewSave();
         _GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
+        _TimePlaying = 0;
         ResetGame();
     }
     public void Menu()
@@ -140,6 +162,7 @@ public class GameHandler : MonoBehaviour
     }
     void ResetGame()
     {
+        DataHandler.STATS.SaveData();
         _PlayerMovement.Reset();
         _SpawnDebris.Reset();
         DebrisCollected = 0;
@@ -147,12 +170,15 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets)
+    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed,minmaxspeed);
+        DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
         _SpawnDebris.Set_Settings(debrisstart);
-        _FailsAllowed = mistakesallowed;
+
         _TimeBetweenLaunches = secondsbetweenrockets;
+        _FailsAllowed = mistakesallowed;
+        _PlayTestID = playtestid;
     }
 }
 

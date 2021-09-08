@@ -13,12 +13,12 @@ public class DebrisHandler : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private Vector2 _MinMaxSpeed;
-    [SerializeField] private List<GameObject> _DebrisPrefab = new List<GameObject>();
+    [SerializeField] private List<int> _DebrisPrefabID = new List<int>();
 
     [Header("Debris")]
     [SerializeField] private List<DebrisObject> _Debris = new List<DebrisObject>();
 
-    void Start()
+    void Awake()
     {
         DEBRIS = this;
     }
@@ -33,7 +33,7 @@ public class DebrisHandler : MonoBehaviour
 
     public void Add_Debris(Transform startpoint)
     {
-        GameObject newdebris = ObjectPool.POOL.GetObject(_DebrisPrefab[Random.Range(0, _DebrisPrefab.Count)]);
+        GameObject newdebris = ObjectPool.POOL.GetObject(_DebrisPrefabID[Random.Range(0, _DebrisPrefabID.Count)], true);
         newdebris.transform.position = startpoint.position;
         DebrisObject newdebrisobj = new DebrisObject();
         newdebrisobj.DebrisObj = newdebris.transform;
@@ -72,6 +72,10 @@ public class DebrisHandler : MonoBehaviour
         _Debris.Clear();
     }
 
+    public void Set_Settings(Vector2 minmaxspeed)
+    {
+        _MinMaxSpeed = minmaxspeed;
+    }
 }
 
 [System.Serializable]
