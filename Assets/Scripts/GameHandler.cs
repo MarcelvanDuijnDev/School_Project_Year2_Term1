@@ -70,6 +70,11 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Restart();
+        }
+
         //Check Gameover
         if (_GameState == GameStates.Ingame)
         {
@@ -110,7 +115,7 @@ public class GameHandler : MonoBehaviour
             _DeathScreen.SetActive(true);
 
         if (_GameState == GameStates.Ingame)
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.Escape))
                 _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
 
         //Check GameOver
