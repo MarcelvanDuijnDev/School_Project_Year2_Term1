@@ -34,7 +34,7 @@ public class RocketLaunch : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            LaunchRocket();
+            //LaunchRocket();
             arrow.SetActive(false);
         }
     }

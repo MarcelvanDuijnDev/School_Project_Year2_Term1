@@ -20,7 +20,10 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private GameObject _MenuScreen = null;
 
     public static int DebrisCollected;
+    public static int DebrisInInventory;
     public static GameHandler HANDLER;
+
+    public static int maxHoldableDebris;
 
     [Header("Ref")]
     public GameObject Earth;
@@ -30,6 +33,7 @@ public class GameHandler : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _DebrisCollected;
     [SerializeField] private TextMeshProUGUI _DebrisInSpace;
+    [SerializeField] private TextMeshProUGUI _DebrisInInventory;
     [SerializeField] private TextMeshProUGUI _Mistakes;
 
     [Header("LaunchPlatforms/Settings")]
@@ -73,6 +77,7 @@ public class GameHandler : MonoBehaviour
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
             int activedebris = ObjectPool.POOL.GetActiveObjectAmount(0) + ObjectPool.POOL.GetActiveObjectAmount(1) + ObjectPool.POOL.GetActiveObjectAmount(2) + ObjectPool.POOL.GetActiveObjectAmount(3);
             _DebrisInSpace.text = "Debris in space: " + activedebris.ToString();
+            _DebrisInInventory.text = "Debris in Inventory: " + DebrisInInventory.ToString() + " / " + maxHoldableDebris.ToString();
             _Mistakes.text = "Mistakes: " + _MadeFails.ToString();
 
             //Launch
