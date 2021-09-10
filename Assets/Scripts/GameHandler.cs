@@ -43,7 +43,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private float _TimeBetweenLaunches_Increase = 0.1f;
 
     private GameHandler_Stats _Stats;
-    private Movement _PlayerMovement;
+    [SerializeField] private MovementV2 _PlayerMovement;
     private float _CurrentTimeBetweenLaunches;
     private float _Timer;
 
@@ -55,7 +55,6 @@ public class GameHandler : MonoBehaviour
     {
         HANDLER = this;
         _Stats = new GameHandler_Stats();
-        _PlayerMovement = GetComponent<Movement>();
     }
 
     private void Start()
@@ -141,9 +140,8 @@ public class GameHandler : MonoBehaviour
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DebrisCollected = DebrisCollected;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].SettingsID = _PlayTestID;
 
-            //DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_MovementSpeed = GameSettings.SETTINGS.MovementSpeed;
-            //DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_MinMaxMovement = GameSettings.SETTINGS.MinMaxSpeed;
-            //DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_RotationSpeed = GameSettings.SETTINGS.RotationSpeed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_MovementSpeed = GameSettings.SETTINGS.MovementSpeed;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.Player_RotationSpeed = GameSettings.SETTINGS.RotationSpeed;
 
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_StartDebris = GameSettings.SETTINGS.StartDebris;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_MinMaxDebrisSpeed = GameSettings.SETTINGS.MinMaxDebrisSpeed;
@@ -204,9 +202,9 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, Vector2 minmaxspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition)
+    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition)
     {
-        //_PlayerMovement.Set_Settings(movementincrease,rotationspeed,minmaxspeed);
+        _PlayerMovement.Set_Settings(movementincrease,rotationspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
         _SpawnDebris.Set_Settings(debrisstart);
         CameraControler.Set_Settings(skiptransition);

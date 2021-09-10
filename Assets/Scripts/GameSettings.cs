@@ -11,9 +11,8 @@ public class GameSettings : MonoBehaviour
     public string SettingsID = "Default";
 
     [Header("Movement")]
-    [Range(0,1)] public float MovementSpeed = 0.02f;
-    [Range(0, 100)] public float RotationSpeed = 20;
-    public Vector2 MinMaxSpeed = new Vector2(-0.05f,.1f);
+    [Range(0, 100)] public float MovementSpeed = 2;
+    [Range(0, 100)] public float RotationSpeed = 1;
 
     [Header("Lives")]
     public int MistakesAllowed = 2;
@@ -36,6 +35,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, MinMaxSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, MinMaxDebrisSpeed, SettingsID, SkipTransition);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, MinMaxDebrisSpeed, SettingsID, SkipTransition);
     }
 }
