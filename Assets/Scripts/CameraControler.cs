@@ -50,10 +50,6 @@ public class CameraControler : MonoBehaviour
         Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookrotation, 0.1f);
 
-        // Location
-        //transform.position =
-        //GetRadius();
-
         _ScrollWheelInput = Input.mouseScrollDelta.y * _ScrollSpeed;
         transform.Translate(new Vector3(0, 0, _ScrollWheelInput) * Time.deltaTime);
         _ScrollWheelInput = 0;
