@@ -23,7 +23,7 @@ public class GameHandler : MonoBehaviour
     public static int DebrisInInventory;
     public static GameHandler HANDLER;
 
-    public static int maxHoldableDebris;
+    public static int _maxHoldableDebris;
 
     [Header("Ref")]
     public GameObject Earth;
@@ -81,7 +81,7 @@ public class GameHandler : MonoBehaviour
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
             int activedebris = ObjectPool.POOL.GetActiveObjectAmount(0) + ObjectPool.POOL.GetActiveObjectAmount(1) + ObjectPool.POOL.GetActiveObjectAmount(2) + ObjectPool.POOL.GetActiveObjectAmount(3);
             _DebrisInSpace.text = "Debris in space: " + activedebris.ToString();
-            _DebrisInInventory.text = "Debris in Inventory: " + DebrisInInventory.ToString() + " / " + maxHoldableDebris.ToString();
+            _DebrisInInventory.text = "Debris in Inventory: " + DebrisInInventory.ToString() + " / " + _maxHoldableDebris.ToString();
             _Mistakes.text = "Mistakes: " + _MadeFails.ToString();
 
             //Launch
@@ -198,11 +198,12 @@ public class GameHandler : MonoBehaviour
         //_PlayerMovement.Reset();
         _SpawnDebris.Reset();
         DebrisCollected = 0;
+        DebrisInInventory = 0;
         ResetUI();
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition)
+    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
@@ -212,6 +213,8 @@ public class GameHandler : MonoBehaviour
         _TimeBetweenLaunches = secondsbetweenrockets;
         _FailsAllowed = mistakesallowed;
         _PlayTestID = playtestid;
+        _maxHoldableDebris = maxHoldableDebris;
+        Debug.Log(_maxHoldableDebris);
     }
 }
 

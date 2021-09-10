@@ -24,6 +24,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Debris")]
     public Vector2 MinMaxDebrisSpeed = new Vector2(0.01f,0.03f);
+    public int MaxHoldableDebris = 100;
 
     [Header("Camera")]
     public bool SkipTransition = false;
@@ -35,6 +36,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, MinMaxDebrisSpeed, SettingsID, SkipTransition);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris);
     }
 }

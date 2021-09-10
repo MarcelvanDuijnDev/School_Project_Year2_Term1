@@ -7,24 +7,16 @@ public class DebrisCollector : MonoBehaviour
     [SerializeField] private float _CollectRange = 5;
     [SerializeField] private float _CollectSpeed;
     [SerializeField] private LayerMask _DebrisLayer;
-    [SerializeField] private int maxHoldableDebris;
-    private int debrisInInventory;
-    public bool canPickupDebris;
 
     //Objects
     private Collider[] _ObjectsInRange;
-
-    private void Start()
-    {
-        GameHandler.maxHoldableDebris = maxHoldableDebris;
-    }
 
 
     void Update()
     {
         _ObjectsInRange = Physics.OverlapSphere(transform.position, _CollectRange, _DebrisLayer);
 
-        if (GameHandler.DebrisInInventory < maxHoldableDebris)
+        if (GameHandler.DebrisInInventory < GameHandler._maxHoldableDebris)
         {
             for (int i = 0; i < _ObjectsInRange.Length; i++)
             {
@@ -54,7 +46,6 @@ public class DebrisCollector : MonoBehaviour
         if (other.gameObject.name == "GarbageDump" && Input.GetKey(KeyCode.Space))
         {
             GameHandler.DebrisInInventory = 0;
-            Debug.Log("dumped");
         }
     }
 

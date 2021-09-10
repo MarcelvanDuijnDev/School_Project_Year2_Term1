@@ -2278,12 +2278,12 @@ MonoBehaviour:
   SettingsID: Default
   MovementSpeed: 0.02
   RotationSpeed: 20
-  MinMaxSpeed: {x: -0.05, y: 0.1}
   MistakesAllowed: 2
   SecondsBetweenRockets: 50
   SecondsBetweenRocketsIncrease: 0.5
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
+  MaxHoldableDebris: 150
   SkipTransition: 0
 --- !u!4 &779602913
 Transform:
@@ -15867,6 +15867,7 @@ MonoBehaviour:
   _TimeBetweenLaunches: 50
   _MinTimeBetweenLaunches: 10
   _TimeBetweenLaunches_Increase: 0.1
+  _PlayerMovement: {fileID: 0}
 --- !u!114 &1695090226
 MonoBehaviour:
   m_ObjectHideFlags: 0
