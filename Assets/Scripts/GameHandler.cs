@@ -51,6 +51,9 @@ public class GameHandler : MonoBehaviour
     private float _TimePlaying;
     private string _PlayTestID;
 
+    private int _SUS = 0;
+    [SerializeField] private GameObject _SUSObj;
+
     private void Awake()
     {
         HANDLER = this;
@@ -69,7 +72,7 @@ public class GameHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             Restart();
         }
@@ -123,6 +126,8 @@ public class GameHandler : MonoBehaviour
             GameState = GameStates.Dead;
             _DeathScreen.SetActive(true);
         }
+
+        SUS();
     }
 
     //Rocket Logic
@@ -217,6 +222,64 @@ public class GameHandler : MonoBehaviour
         _PlayTestID = playtestid;
         _maxHoldableDebris = maxHoldableDebris;
         Debug.Log(_maxHoldableDebris);
+    }
+
+    void SUS()
+    {
+        switch(_SUS)
+        {
+            case 0:
+                if (Input.GetKeyDown(KeyCode.S))
+                    _SUS++;
+                break;
+            case 1:
+                if (Input.GetKeyDown(KeyCode.U))
+                    _SUS++;
+                break;
+            case 2:
+                if (Input.GetKeyDown(KeyCode.S))
+                    _SUS++;
+                break;
+            case 3:
+                    _SUSObj.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.I))
+                    _SUS++;
+                break;
+            case 4:
+                if (Input.GetKeyDown(KeyCode.M))
+                    _SUS++;
+                break;
+            case 5:
+                if (Input.GetKeyDown(KeyCode.P))
+                    _SUS++;
+                break;
+            case 6:
+                if (Input.GetKeyDown(KeyCode.O))
+                    _SUS++;
+                break;
+            case 7:
+                if (Input.GetKeyDown(KeyCode.S))
+                    _SUS++;
+                break;
+            case 8:
+                if (Input.GetKeyDown(KeyCode.T))
+                    _SUS++;
+                break;
+            case 9:
+                if (Input.GetKeyDown(KeyCode.O))
+                    _SUS++;
+                if (Input.GetKeyDown(KeyCode.E))
+                    _SUS++;
+                break;
+            case 10:
+                if (Input.GetKeyDown(KeyCode.R))
+                    _SUS++;
+                break;
+            case 11:
+                _SUSObj.SetActive(false);
+                _SUS = 0;
+                break;
+        }
     }
 }
 
