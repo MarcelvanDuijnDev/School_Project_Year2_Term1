@@ -172,6 +172,10 @@ public class GameHandler : MonoBehaviour
     public void Restart()
     {
         DataHandler.STATS.CreateNewSave();
+        for (int i = 0; i < _LaunchPort.Count; i++)
+        {
+            _LaunchPort[i].Cancel();
+        }
         GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
         _Timer = _CurrentTimeBetweenLaunches - 10;
@@ -182,6 +186,10 @@ public class GameHandler : MonoBehaviour
     }
     public void Menu()
     {
+        for (int i = 0; i < _LaunchPort.Count; i++)
+        {
+            _LaunchPort[i].Cancel();
+        }
         _MadeFails = 0;
         CameraControler.SetCameraState(0);
         ResetGame();
