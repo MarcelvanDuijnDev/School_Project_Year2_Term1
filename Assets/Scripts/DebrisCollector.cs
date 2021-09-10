@@ -9,6 +9,7 @@ public class DebrisCollector : MonoBehaviour
     [SerializeField] private LayerMask _DebrisLayer;
     [SerializeField] private int maxHoldableDebris;
     private int debrisInInventory;
+    public bool canPickupDebris;
 
     //Objects
     private Collider[] _ObjectsInRange;
@@ -23,15 +24,18 @@ public class DebrisCollector : MonoBehaviour
     {
         _ObjectsInRange = Physics.OverlapSphere(transform.position, _CollectRange, _DebrisLayer);
 
-        for (int i = 0; i < _ObjectsInRange.Length; i++)
+        if (GameHandler.DebrisInInventory < maxHoldableDebris)
         {
-            _ObjectsInRange[i].transform.position = Vector3.MoveTowards(_ObjectsInRange[i].transform.position, transform.position, _CollectSpeed);
-
-            if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 0.5f && debrisInInventory < maxHoldableDebris)
+            for (int i = 0; i < _ObjectsInRange.Length; i++)
             {
-                GameHandler.DebrisCollected++;
-                GameHandler.DebrisInInventory++;
-                _ObjectsInRange[i].gameObject.SetActive(false);
+                _ObjectsInRange[i].transform.position = Vector3.MoveTowards(_ObjectsInRange[i].transform.position, transform.position, _CollectSpeed);
+
+                if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 0.5f)
+                {
+                    GameHandler.DebrisCollected++;
+                    GameHandler.DebrisInInventory++;
+                    _ObjectsInRange[i].gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -44,13 +48,17 @@ public class DebrisCollector : MonoBehaviour
 
 
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.name == "GarbageDump" && Input.GetKeyDown(KeyCode.Space))
+        if (other.gameObject.name == "GarbageDump" && Input.GetKey(KeyCode.Space))
         {
             GameHandler.DebrisInInventory = 0;
             Debug.Log("dumped");
         }
     }
+
+
+
 
 }
