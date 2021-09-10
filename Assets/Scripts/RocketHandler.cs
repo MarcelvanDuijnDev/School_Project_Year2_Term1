@@ -13,6 +13,7 @@ public class RocketHandler : MonoBehaviour
 
 
     private bool _Launched = false;
+    private Vector3 _SpawnDebrisPoint;
 
     void Update()
     {
@@ -23,6 +24,8 @@ public class RocketHandler : MonoBehaviour
             {
                 GameHandler.HANDLER.RocketLaunched();
                 DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketsLaunched++;
+                _SpawnDebrisPoint = transform.position;
+                StartCoroutine(SpawnDebrisAtSeperation());
                 _Launched = true;
             }
 
@@ -32,15 +35,30 @@ public class RocketHandler : MonoBehaviour
         }
     }
 
+    IEnumerator SpawnDebrisAtSeperation()
+    {
+
+        yield return new WaitForSeconds(1);
+        SpawnDebris(20, _SpawnDebrisPoint);
+    }
+
 
     void FlyUp()
     {
         transform.Translate(Vector3.up * rocketSpeed * Time.deltaTime);
     }
 
-    void SpawnDebris(int _amountOfDebris)
+    void SpawnDebris(int amount, Vector3 pos)
     {
-        for (int i = 0; i < _amountOfDebris; i++)
+        for (int i = 0; i < amount; i++)
+        {
+            DebrisHandler.DEBRIS.Add_DebrisPos(pos);
+        }
+    }
+
+    void SpawnDebris(int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
             DebrisHandler.DEBRIS.Add_Debris(transform);
         }

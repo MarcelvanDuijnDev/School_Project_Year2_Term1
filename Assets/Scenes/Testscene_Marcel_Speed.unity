@@ -2283,6 +2283,7 @@ MonoBehaviour:
   SecondsBetweenRocketsIncrease: 0.5
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
+  MaxHoldableDebris: 100
   SkipTransition: 0
 --- !u!4 &779602913
 Transform:
@@ -17907,7 +17908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b665b04dec84b7c44a96fef4e731df2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Speed: 2
+  _Speed: 10
   _RotateSpeed: 1
   _EarthCenter: {fileID: 1712914590}
   _Gravity: 150

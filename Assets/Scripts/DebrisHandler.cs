@@ -41,6 +41,16 @@ public class DebrisHandler : MonoBehaviour
         newdebrisobj.MoveDirection = new Vector3(Random.Range(-360,360), Random.Range(-360, 360), Random.Range(-360, 360));
         _Debris.Add(newdebrisobj);
     }
+    public void Add_DebrisPos(Vector3 startpoint)
+    {
+        GameObject newdebris = ObjectPool.POOL.GetObject(_DebrisPrefabID[Random.Range(0, _DebrisPrefabID.Count)], true);
+        newdebris.transform.position = startpoint;
+        DebrisObject newdebrisobj = new DebrisObject();
+        newdebrisobj.DebrisObj = newdebris.transform;
+        newdebrisobj.Speed = Random.Range(_MinMaxSpeed.x, _MinMaxSpeed.y);
+        newdebrisobj.MoveDirection = new Vector3(Random.Range(-360, 360), Random.Range(-360, 360), Random.Range(-360, 360));
+        _Debris.Add(newdebrisobj);
+    }
 
     /*
     private void OnDrawGizmos()
