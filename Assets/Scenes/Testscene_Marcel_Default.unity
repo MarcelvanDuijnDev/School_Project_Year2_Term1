@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15696,7 +15696,6 @@ GameObject:
   - component: {fileID: 1695090223}
   - component: {fileID: 1695090225}
   - component: {fileID: 1695090227}
-  - component: {fileID: 1695090231}
   - component: {fileID: 1695090226}
   - component: {fileID: 1695090222}
   - component: {fileID: 1695090228}
@@ -15823,7 +15822,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695090221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a9938db8d1533249a5574eae35487a4, type: 3}
   m_Name: 
@@ -15916,24 +15915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SaveData:
     saveData: []
---- !u!114 &1695090231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695090221}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64df153207aa2bc49ae1c63777be716d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _RotationSpeed: 100
-  _Acceleration: 0.02
-  _CurrentSpeed: {x: 0, y: 0, z: 0}
-  _MinMaxSpeed: {x: -0.05, y: 0.1}
-  _CameraCenter: {fileID: 1712914590}
-  _ShipModel: {fileID: 1503247247}
 --- !u!1 &1712914588
 GameObject:
   m_ObjectHideFlags: 0
@@ -16825,7 +16806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[DebrisCollected]'
+  m_text: '[DebrisInInventory]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

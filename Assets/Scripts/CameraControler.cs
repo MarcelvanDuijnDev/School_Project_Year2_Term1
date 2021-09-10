@@ -26,22 +26,24 @@ public class CameraControler : MonoBehaviour
 
     void Update()
     {
-        switch(_CameraState)
+        if (_MenuCameraPosition != null)
         {
-            case 0: //Menu
-                if (!_SkipTransition)
-                    transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 500 * Time.deltaTime);
-                else
-                    transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10000 * Time.deltaTime);
-                break;
-            case 1:
-                if (!_SkipTransition)
-                    transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 500 * Time.deltaTime);
-                else
-                    transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10000 * Time.deltaTime);
-                break;
+            switch (_CameraState)
+            {
+                case 0: //Menu
+                    if (!_SkipTransition)
+                        transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, _TransitionSpeed * Time.deltaTime);
+                    else
+                        transform.position = Vector3.MoveTowards(transform.position, _MenuCameraPosition.position, 10000 * Time.deltaTime);
+                    break;
+                case 1:
+                    if (!_SkipTransition)
+                        transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, _TransitionSpeed * Time.deltaTime);
+                    else
+                        transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10000 * Time.deltaTime);
+                    break;
+            }
         }
-
 
         // Lookat planet
         Vector3 rpos = _Target.position - transform.position;
