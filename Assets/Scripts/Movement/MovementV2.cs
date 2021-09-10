@@ -17,6 +17,7 @@ public class MovementV2 : MonoBehaviour
 
     private Rigidbody _RB;
     private Vector3 _StartRotation;
+    private Vector3 _StartPosition;
 
     Vector3 _CenterRot;
 
@@ -24,18 +25,21 @@ public class MovementV2 : MonoBehaviour
     {
         _RB = GetComponent<Rigidbody>();
         _StartRotation = transform.eulerAngles;
+        _StartPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
-        ProcessInput();
-        ProcessGravity();
+        if (GameHandler.HANDLER.GameState == GameHandler.GameStates.Ingame)
+        {
+            ProcessInput();
+            ProcessGravity();
 
-        // Lookat planet
-        Vector3 rpos = _EarthCenter.position - transform.position;
-        Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
-        _CameraCenter.rotation = Quaternion.Lerp(_CameraCenter.rotation, lookrotation, 0.5f);
-
+            // Lookat planet
+            Vector3 rpos = _EarthCenter.position - transform.position;
+            Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
+            _CameraCenter.rotation = Quaternion.Lerp(_CameraCenter.rotation, lookrotation, 0.5f);
+        }
     }
 
     void ProcessInput()
@@ -68,6 +72,8 @@ public class MovementV2 : MonoBehaviour
 
     public void Reset()
     {
-        
+        transform.eulerAngles = _StartRotation;
+        transform.position = _StartPosition;
+        _RB.velocity = Vector3.zero;
     }
 }

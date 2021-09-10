@@ -7,7 +7,7 @@ public class GameHandler : MonoBehaviour
 {
     public enum GameStates {Menu,Ingame,Pauzed,Dead }
     [Header("CurrentGameState")]
-    [SerializeField] private GameStates _GameState = new GameStates();
+    public GameStates GameState = new GameStates();
 
     [Header("Game Settings")]
     [SerializeField] private int _FailsAllowed;
@@ -75,7 +75,7 @@ public class GameHandler : MonoBehaviour
         }
 
         //Check Gameover
-        if (_GameState == GameStates.Ingame)
+        if (GameState == GameStates.Ingame)
         {
             //UI
             _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
@@ -98,7 +98,7 @@ public class GameHandler : MonoBehaviour
             _TimePlaying += 1 * Time.deltaTime;
         }
 
-        if (_GameState == GameStates.Menu)
+        if (GameState == GameStates.Menu)
         {
             _HUDScreen.SetActive(false);
             _MenuScreen.SetActive(true);
@@ -113,14 +113,14 @@ public class GameHandler : MonoBehaviour
         if (_DeathScreen.activeSelf)
             _DeathScreen.SetActive(true);
 
-        if (_GameState == GameStates.Ingame)
+        if (GameState == GameStates.Ingame)
             if (Input.GetKeyDown(KeyCode.Escape))
                 _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
 
         //Check GameOver
         if (_MadeFails > _FailsAllowed)
         {
-            _GameState = GameStates.Dead;
+            GameState = GameStates.Dead;
             _DeathScreen.SetActive(true);
         }
     }
@@ -167,7 +167,7 @@ public class GameHandler : MonoBehaviour
     public void Restart()
     {
         DataHandler.STATS.CreateNewSave();
-        _GameState = GameStates.Ingame;
+        GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
         _Timer = _CurrentTimeBetweenLaunches - 10;
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
@@ -177,9 +177,10 @@ public class GameHandler : MonoBehaviour
     }
     public void Menu()
     {
-        _GameState = GameStates.Menu;
+        _MadeFails = 0;
         CameraControler.SetCameraState(0);
         ResetGame();
+        GameState = GameStates.Menu;
     }
     public void Resume()
     {
@@ -195,8 +196,9 @@ public class GameHandler : MonoBehaviour
     void ResetGame()
     {
         DataHandler.STATS.SaveData();
-        //_PlayerMovement.Reset();
+        _PlayerMovement.Reset();
         _SpawnDebris.Reset();
+        _MadeFails = 0;
         DebrisCollected = 0;
         DebrisInInventory = 0;
         ResetUI();

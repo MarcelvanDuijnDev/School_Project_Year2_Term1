@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15837,7 +15837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18ea6b6068d2964399c9d4a6be66fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _GameState: 0
+  GameState: 0
   _FailsAllowed: 2
   _DeathScreen: {fileID: 1241802683}
   _PauzeScreen: {fileID: 2081092619}
@@ -16139,6 +16139,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4412f83d058774f45ade634bea1b42a9, type: 3}
       propertyPath: m_Name
       value: Planet_Alpha
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 4412f83d058774f45ade634bea1b42a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4412f83d058774f45ade634bea1b42a9, type: 3}
