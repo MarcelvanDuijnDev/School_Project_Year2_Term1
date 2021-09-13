@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
         {
             ProcessInput();
             ProcessGravity();
-            //BoosterManagement();
+            BoosterManagement();
 
             // Lookat planet
             Vector3 rpos = _EarthCenter.position - transform.position;
@@ -119,8 +119,29 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                midThruster.startLifetime -= thrusterIncreaseSpeed;
+                outerThrusters[i].startLifetime -= thrusterIncreaseSpeed;
             }
         }
+
+        /*        ParticleSystem.MainModule leftMain = leftThruster.main;
+                leftMain.startLifetime = currentThrusterLifeTime;
+                ParticleSystem.MainModule midMain = midThruster.main;
+                midMain.startLifetime = currentThrusterLifeTime;
+                ParticleSystem.MainModule rightMain = rightThruster.main;
+                rightMain.startLifetime = currentThrusterLifeTime;
+
+
+
+                if (currentThrusterLifeTime <= maxStartLifeTime && Input.GetAxis("Vertical") > 0)
+                {
+                    currentThrusterLifeTime += thrusterIncreaseSpeed;
+                }
+                else
+                {
+                    currentThrusterLifeTime -= thrusterIncreaseSpeed;
+                }*/
+
+
+
     }
 }

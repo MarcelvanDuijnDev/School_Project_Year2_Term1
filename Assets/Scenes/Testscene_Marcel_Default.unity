@@ -22845,6 +22845,14 @@ PrefabInstance:
       propertyPath: _CameraCenter
       value: 
       objectReference: {fileID: 1712914590}
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: maxStartLifeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: thrusterIncreaseSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549495199797014993, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: trashShipSpawn
       value: 
