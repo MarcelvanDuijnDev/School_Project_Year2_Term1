@@ -99,14 +99,14 @@ public class RocketHandler : MonoBehaviour
             case 0:
                 break;
             case 1:
-                //bottomStage.SetActive(false);
+                bottomStage.SetActive(false);
                 Instantiate(bottomStageDrop, bottomStage.transform.position, bottomStage.transform.rotation, transform.parent.parent.parent);
 
                 Debug.Log("Stage 1 Separated");
                 stage = 0;
                 break;
             case 2:
-                //middleStage.SetActive(false);
+                middleStage.SetActive(false);
                 Instantiate(middleStageDrop, middleStage.transform.position, middleStage.transform.rotation, transform.parent.parent.parent);
                 Debug.Log("Stage 2 Separated");
                 stage = 0;

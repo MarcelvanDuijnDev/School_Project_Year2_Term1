@@ -141,12 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb81c0730918d04ab829da0a2410723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 1366790979342261157, guid: 3fc44c98e786e8845b50ecb6bd8afcc6, type: 3}
+  rocketPrefab: {fileID: 364180682810349062, guid: d08b1cf8f2d9ec14e8e5fb5566e2bd09, type: 3}
   rocketSpeed: 20
   launchPosition: {fileID: 463955973}
-  dotPrefab: {fileID: 4738690813188419560, guid: c980c0f894ae9f944812c722d1155673, type: 3}
-  numOfDots: 15
-  distanceBetweenDots: 50
 --- !u!120 &2754142431834224733
 LineRenderer:
   m_ObjectHideFlags: 0
