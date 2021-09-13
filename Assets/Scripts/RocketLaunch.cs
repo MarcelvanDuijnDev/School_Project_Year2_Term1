@@ -16,27 +16,15 @@ public class RocketLaunch : MonoBehaviour
         [SerializeField] int numOfDots;
         [SerializeField] float distanceBetweenDots;
         private Vector3 trajectoryPoint;*/
-    [SerializeField] GameObject arrow;
+
 
 
     
-    void Start()
-    {
-        //trajectoryPoint = launchPosition.position;
-    }
 
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            arrow.SetActive(true);
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //LaunchRocket();
-            arrow.SetActive(false);
-        }
+
     }
 
 
@@ -51,7 +39,7 @@ public class RocketLaunch : MonoBehaviour
     }
 
 
-
+    
 
 /*    void DrawTrajectoryLine()
     {

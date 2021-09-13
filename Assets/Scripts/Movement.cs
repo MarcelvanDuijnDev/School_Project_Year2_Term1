@@ -19,6 +19,11 @@ public class Movement : MonoBehaviour
     private Vector3 _StartPosition;
     private float _CheckGrav;
 
+    [SerializeField] float thrusterIncreaseSpeed;
+    [SerializeField] float maxStartLifeTime;
+    [SerializeField] ParticleSystem[] outerThrusters;
+    [SerializeField] ParticleSystem midThruster;
+
     void Start()
     {
         _CheckGrav = _Gravity;
@@ -33,6 +38,7 @@ public class Movement : MonoBehaviour
         {
             ProcessInput();
             ProcessGravity();
+            //BoosterManagement();
 
             // Lookat planet
             Vector3 rpos = _EarthCenter.position - transform.position;
@@ -88,5 +94,33 @@ public class Movement : MonoBehaviour
 
         yield return new WaitForSeconds(3);
         _Gravity = _CheckGrav;
+    }
+
+
+    void BoosterManagement()
+    {
+/*        float _thrusterIncreaseSpeed = thrusterIncreaseSpeed * Input.GetAxis("Vertical");*/
+
+        if (midThruster.startLifetime <= maxStartLifeTime && Input.GetAxis("Vertical") > 0)
+        {
+            midThruster.startLifetime += thrusterIncreaseSpeed;
+        }
+        else
+        {
+            midThruster.startLifetime -= thrusterIncreaseSpeed;
+        }
+
+
+        for (int i = 0; i < outerThrusters.Length; i++)
+        {
+            if (outerThrusters[i].startLifetime <= maxStartLifeTime && Input.GetAxis("Vertical") > 0)
+            {
+                outerThrusters[i].startLifetime += thrusterIncreaseSpeed;
+            }
+            else
+            {
+                midThruster.startLifetime -= thrusterIncreaseSpeed;
+            }
+        }
     }
 }

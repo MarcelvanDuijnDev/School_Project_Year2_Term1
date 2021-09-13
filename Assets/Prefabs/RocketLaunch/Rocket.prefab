@@ -987,7 +987,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSpeed: 5
-  amountOfDebris: 20
+  amountOfDebris: 0
+  middleStage: {fileID: 984436296816731289}
+  bottomStage: {fileID: 3632956783702199851}
+  middleStageDrop: {fileID: 294201687454228633, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}
+  bottomStageDrop: {fileID: 2971538422933394136, guid: cad110dc0a2431a42a58fb7502929e42, type: 3}
+  parent: {fileID: 0}
+  stage1Seperation: 5
+  stage2Seperation: 10
 --- !u!54 &908568732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7002,6 +7009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4116582936631448721}
+  - component: {fileID: 5588766290881294848}
   m_Layer: 0
   m_Name: Rocket_Bottom
   m_TagString: Untagged
@@ -7038,6 +7046,20 @@ Transform:
   m_Father: {fileID: 2137321777085832533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5588766290881294848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632956783702199851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ea4a84bc5e3064b9e6dffb080911e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropSpeed: 0
+  amountOfDebris: 0
 --- !u!1 &3671420078473314009
 GameObject:
   m_ObjectHideFlags: 0
