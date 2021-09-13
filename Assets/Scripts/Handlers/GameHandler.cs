@@ -11,7 +11,6 @@ public class GameHandler : MonoBehaviour
 
     [Header("Game Settings")]
     [SerializeField] private int _FailsAllowed;
-    private int _MadeFails;
 
     [Header("GameOver/Pauze")]
     [SerializeField] private GameObject _DeathScreen = null;
@@ -19,38 +18,27 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private GameObject _HUDScreen = null;
     [SerializeField] private GameObject _MenuScreen = null;
 
+    //Static variables
     public static int DebrisCollected;
     public static int DebrisInInventory;
     public static GameHandler HANDLER;
-
-    public static int _maxHoldableDebris;
+    public static int MaxHoldableDebris;
+    [HideInInspector] public static int MadeFails;
 
     [Header("Ref")]
     public GameObject Earth;
     public CameraControler CameraControler;
     [SerializeField] private SpawnDebris _SpawnDebris;
+    [SerializeField] private Movement _PlayerMovement;
 
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI _DebrisCollected;
-    [SerializeField] private TextMeshProUGUI _DebrisInSpace;
-    [SerializeField] private TextMeshProUGUI _DebrisInInventory;
-    [SerializeField] private TextMeshProUGUI _Mistakes;
-
-    [Header("LaunchPlatforms/Settings")]
-    [SerializeField] private List<LaunchEffect> _LaunchPort = new List<LaunchEffect>();
-    [SerializeField] private float _TimeBetweenLaunches = 50;
-    [SerializeField] private float _MinTimeBetweenLaunches = 10;
-    [SerializeField] private float _TimeBetweenLaunches_Increase = 0.1f;
-
+    //Private variables
     private GameHandler_Stats _Stats;
-    [SerializeField] private MovementV2 _PlayerMovement;
-    private float _CurrentTimeBetweenLaunches;
     private float _Timer;
-
-    //stats
     private float _TimePlaying;
     private string _PlayTestID;
+    private LaunchHandler _LaunchHandler;
 
+    //Ignore
     private int _SUS = 0;
     [SerializeField] private GameObject _SUSObj;
 
@@ -58,16 +46,13 @@ public class GameHandler : MonoBehaviour
     {
         HANDLER = this;
         _Stats = new GameHandler_Stats();
+        _LaunchHandler = GetComponent<LaunchHandler>();
     }
 
     private void Start()
     {
         _DeathScreen.SetActive(false);
         _PauzeScreen.SetActive(false);
-
-        _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
-
-        _Timer = _CurrentTimeBetweenLaunches - 10;
     }
 
     void Update()
@@ -80,24 +65,6 @@ public class GameHandler : MonoBehaviour
         //Check Gameover
         if (GameState == GameStates.Ingame)
         {
-            //UI
-            _DebrisCollected.text = "Debris Collected: " + DebrisCollected.ToString();
-            int activedebris = ObjectPool.POOL.GetActiveObjectAmount(0) + ObjectPool.POOL.GetActiveObjectAmount(1) + ObjectPool.POOL.GetActiveObjectAmount(2) + ObjectPool.POOL.GetActiveObjectAmount(3);
-            _DebrisInSpace.text = "Debris in space: " + activedebris.ToString();
-            _DebrisInInventory.text = "Debris in Inventory: " + DebrisInInventory.ToString() + " / " + _maxHoldableDebris.ToString();
-            _Mistakes.text = "Mistakes: " + _MadeFails.ToString();
-
-            //Launch
-            _Timer += 1 * Time.deltaTime;
-            if (_Timer >= _CurrentTimeBetweenLaunches)
-            {
-                _LaunchPort[Random.Range(0, _LaunchPort.Count)].Launch();
-                _Timer = Random.Range(0, _TimeBetweenLaunches * 0.5f);
-            }
-
-            if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
-                _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase * Time.deltaTime;
-
             _TimePlaying += 1 * Time.deltaTime;
         }
 
@@ -117,11 +84,17 @@ public class GameHandler : MonoBehaviour
             _DeathScreen.SetActive(true);
 
         if (GameState == GameStates.Ingame)
+        {
+            //Stats
+            _TimePlaying += 1 * Time.deltaTime;
+
+            //IngameMenu
             if (Input.GetKeyDown(KeyCode.Escape))
                 _PauzeScreen.SetActive(!_PauzeScreen.activeSelf);
+        }
 
         //Check GameOver
-        if (_MadeFails > _FailsAllowed)
+        if (MadeFails > _FailsAllowed)
         {
             GameState = GameStates.Dead;
             _DeathScreen.SetActive(true);
@@ -133,12 +106,12 @@ public class GameHandler : MonoBehaviour
     //Rocket Logic
     public void RocketLaunched()
     {
-        _MadeFails = 0;
+        MadeFails = 0;
     }
     public void RocketExploded()
     {
-        _MadeFails++;
-        if (_MadeFails >= _FailsAllowed)
+        MadeFails++;
+        if (MadeFails >= _FailsAllowed)
         { 
             //Set Save Data
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = _TimePlaying;
@@ -153,16 +126,7 @@ public class GameHandler : MonoBehaviour
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_MistakesAllowed = GameSettings.SETTINGS.MistakesAllowed;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_SecondsBetweenLaunch = GameSettings.SETTINGS.SecondsBetweenRockets;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_SecondsBetweenLaunchIncrease = GameSettings.SETTINGS.SecondsBetweenRocketsIncrease;
-
-
             DataHandler.STATS.SaveData();
-
-            //Reset RocketLaunchPorts
-            for (int i = 0; i < _LaunchPort.Count; i++)
-            {
-                _LaunchPort[i].Cancel();
-            }
-            _Timer = 0;
 
             _DeathScreen.SetActive(true);
         }
@@ -172,25 +136,15 @@ public class GameHandler : MonoBehaviour
     public void Restart()
     {
         DataHandler.STATS.CreateNewSave();
-        for (int i = 0; i < _LaunchPort.Count; i++)
-        {
-            _LaunchPort[i].Cancel();
-        }
         GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
-        _Timer = _CurrentTimeBetweenLaunches - 10;
-        _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
-        _MadeFails = 0;
+        MadeFails = 0;
         _TimePlaying = 0;
         ResetGame();
     }
     public void Menu()
     {
-        for (int i = 0; i < _LaunchPort.Count; i++)
-        {
-            _LaunchPort[i].Cancel();
-        }
-        _MadeFails = 0;
+        MadeFails = 0;
         CameraControler.SetCameraState(0);
         ResetGame();
         GameState = GameStates.Menu;
@@ -211,25 +165,33 @@ public class GameHandler : MonoBehaviour
         DataHandler.STATS.SaveData();
         _PlayerMovement.Reset();
         _SpawnDebris.Reset();
-        _MadeFails = 0;
+        MadeFails = 0;
         DebrisCollected = 0;
         DebrisInInventory = 0;
         ResetUI();
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris)
+    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, float secondsdecrease, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
         _SpawnDebris.Set_Settings(debrisstart);
         CameraControler.Set_Settings(skiptransition);
 
-        _TimeBetweenLaunches = secondsbetweenrockets;
+        _LaunchHandler.Set_Settings(secondsbetweenrockets,secondsdecrease);
         _FailsAllowed = mistakesallowed;
         _PlayTestID = playtestid;
-        _maxHoldableDebris = maxHoldableDebris;
-        Debug.Log(_maxHoldableDebris);
+        MaxHoldableDebris = maxHoldableDebris;
+        Debug.Log("Settings \n " +
+            "MovementSpeed: " + movementincrease + "\n" +
+            "RotationSpeed: " + rotationspeed + "\n" +
+            "Mistakes Allowed: " + mistakesallowed + "\n" +
+            "SecondsBetweenLaunches: " + secondsbetweenrockets + "\n" +
+            "SecondsDecrease: " + secondsdecrease + "\n" +
+            "Start Debris: " + debrisstart + "\n" +
+            "MaxDebris: " + MaxHoldableDebris + "\n" +
+            "Skip Transition:" + skiptransition);
     }
 
     void SUS()

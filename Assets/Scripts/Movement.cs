@@ -2,27 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementV2 : MonoBehaviour
+public class Movement : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float _Speed;
     [SerializeField] private float _RotateSpeed;
-
-    [SerializeField] private Transform _EarthCenter;
-
     [SerializeField] private float _Gravity = 9.81f;
-    [SerializeField] private bool _AutoOrient = false;
-    [SerializeField] float _AutoOrientSpeed = 1f;
 
+    [Header("Ref")]
+    [SerializeField] private Transform _EarthCenter;
     [SerializeField] private Transform _CameraCenter;
 
+    //Private Variables
     private Rigidbody _RB;
     private Vector3 _StartRotation;
     private Vector3 _StartPosition;
-
-    Vector3 _CenterRot;
+    private float _CheckGrav;
 
     void Start()
     {
+        _CheckGrav = _Gravity;
         _RB = GetComponent<Rigidbody>();
         _StartRotation = transform.eulerAngles;
         _StartPosition = transform.position;
@@ -42,6 +41,14 @@ public class MovementV2 : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Reset();
+        }
+    }
+
     void ProcessInput()
     {
         float inputx = -Input.GetAxis("Horizontal") * _RotateSpeed;
@@ -54,14 +61,6 @@ public class MovementV2 : MonoBehaviour
     {
         Vector3 diff = transform.position - _EarthCenter.position;
         _RB.AddForce(-diff.normalized * _Gravity * (_RB.mass));
-
-        if (_AutoOrient) { AutoOrient(-diff); }
-    }
-
-    void AutoOrient(Vector3 down)
-    {
-        Quaternion orientationDirection = Quaternion.FromToRotation(-transform.up, down) * transform.rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation, orientationDirection, _AutoOrientSpeed * Time.deltaTime);
     }
 
     public void Set_Settings(float movement, float rotatespeed)
@@ -72,8 +71,22 @@ public class MovementV2 : MonoBehaviour
 
     public void Reset()
     {
+        StartCoroutine(ResetShip());
+    }
+
+    IEnumerator ResetShip()
+    {
+        _Gravity = 5;
+        _RB.velocity = Vector3.zero;
         transform.eulerAngles = _StartRotation;
         transform.position = _StartPosition;
-        _RB.velocity = Vector3.zero;
+
+        Vector3 rpos = _EarthCenter.position - transform.position;
+        Quaternion lookrotation = Quaternion.LookRotation(rpos, Vector3.up);
+        _CameraCenter.rotation = lookrotation;
+        _RB.rotation = lookrotation;
+
+        yield return new WaitForSeconds(3);
+        _Gravity = _CheckGrav;
     }
 }

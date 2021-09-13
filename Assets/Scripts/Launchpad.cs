@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaunchEffect : MonoBehaviour
+public class Launchpad : MonoBehaviour
 {
+    [Header("LaunchPad")]
+    public string Name;
 
+    [Header("Settings")]
     [SerializeField] private float _SecondsAlive;
     [SerializeField] private RocketLaunch _RocketPort;
 
-    private float _SchrinkSpeed;
-
+    //Private Variables
     private int _State;
+    private float _SchrinkSpeed;
     private float _CircleScale = 100;
 
     private void Start()
     {
         _SchrinkSpeed = _CircleScale / _SecondsAlive;
     }
-
 
     public void Launch()
     {

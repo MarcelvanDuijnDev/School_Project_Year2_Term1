@@ -36,6 +36,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolarSystemHandler : MonoBehaviour
+public class SolarSystem : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _SpeedMultiplier = 1;

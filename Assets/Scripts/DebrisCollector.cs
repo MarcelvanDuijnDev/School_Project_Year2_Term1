@@ -16,7 +16,7 @@ public class DebrisCollector : MonoBehaviour
     {
         _ObjectsInRange = Physics.OverlapSphere(transform.position, _CollectRange, _DebrisLayer);
 
-        if (GameHandler.DebrisInInventory < GameHandler._maxHoldableDebris)
+        if (GameHandler.DebrisInInventory < GameHandler.MaxHoldableDebris)
         {
             for (int i = 0; i < _ObjectsInRange.Length; i++)
             {
