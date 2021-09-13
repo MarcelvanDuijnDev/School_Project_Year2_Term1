@@ -247,6 +247,7 @@ public class GameHandler : MonoBehaviour
             case 2:
                 if (Input.GetKeyDown(KeyCode.S))
                     _SUS++;
+                AudioHandler.AUDIO.PlayTrack("SUS");
                 break;
             case 3:
                     _SUSObj.SetActive(true);

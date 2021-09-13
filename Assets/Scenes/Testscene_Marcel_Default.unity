@@ -20849,7 +20849,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _RefreshSettingsOnUpdate: 0
   _AudioMixer: {fileID: 24300002, guid: d923727a92f8c654896687229c5904ff, type: 2}
-  _Sound: []
+  _Sound:
+  - AudioTrackName: SUS
+    Settings:
+      AudioClip: {fileID: 8300000, guid: deddfe624aaf3b2488b2bd4b4cb82b64, type: 3}
+      AudioGroup: {fileID: 0}
+      AudioSource: {fileID: 0}
+      CreateAudioSource: 1
+    AudioSettings:
+      Volume: 1
+      Loop: 0
+      PlayOnStart: 0
+    AudioControl:
+      StartAudioOnScene: []
+      StopAudioOnScene: []
+      StopOnNextScene: 0
+      SceneEnabled: 0
+    AudioEffects:
+      FadeIn: 0
+      FadeInDuration: 0
+      FadeInSpeed: 0
+      FadeInDone: 0
+      FadingIn: 0
+      FadeOut: 0
+      FadeOutAfterTime: 0
+      FadeOutDuration: 0
+      FadeOutSpeed: 0
+      FadeOutDone: 0
+      FadingOut: 0
 --- !u!114 &1695090230
 MonoBehaviour:
   m_ObjectHideFlags: 0
