@@ -3970,10 +3970,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1901543586}
     m_Modifications:
-    - target: {fileID: 1035405739627497992, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
-      propertyPath: arrow
-      value: 
-      objectReference: {fileID: 8576436406108524943, guid: af49270881e7b14458ec5e0f7ac82f1b, type: 3}
     - target: {fileID: 6629436777119963020, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
       propertyPath: m_Name
       value: LaunchPlatform
@@ -14566,10 +14562,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1843174814}
     m_Modifications:
-    - target: {fileID: 1035405739627497992, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
-      propertyPath: arrow
-      value: 
-      objectReference: {fileID: 8576436406108524943, guid: af49270881e7b14458ec5e0f7ac82f1b, type: 3}
     - target: {fileID: 6629436777119963020, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
       propertyPath: m_Name
       value: LaunchPlatform
@@ -15252,10 +15244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1581890272}
     m_Modifications:
-    - target: {fileID: 1035405739627497992, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
-      propertyPath: arrow
-      value: 
-      objectReference: {fileID: 8576436406108524943, guid: af49270881e7b14458ec5e0f7ac82f1b, type: 3}
     - target: {fileID: 6629436777119963020, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
       propertyPath: m_Name
       value: LaunchPlatform
@@ -20405,8 +20393,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2015314712}
   - {fileID: 416464668}
+  - {fileID: 2015314712}
   m_Father: {fileID: 1352843912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22059,10 +22047,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 925051098}
     m_Modifications:
-    - target: {fileID: 1035405739627497992, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
-      propertyPath: arrow
-      value: 
-      objectReference: {fileID: 8576436406108524943, guid: af49270881e7b14458ec5e0f7ac82f1b, type: 3}
     - target: {fileID: 6629436777119963020, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
       propertyPath: m_Name
       value: LaunchPlatform

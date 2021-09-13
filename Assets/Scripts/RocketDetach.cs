@@ -27,12 +27,14 @@ public class RocketDetach : MonoBehaviour
 
     void breakIntoDebris()
     {
-        if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) <= 10)
+        Debug.Log(Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position));
+        if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) <= 60)
         {
             isDropping = false;
             SpawnDebris(amountOfDebris, transform.position);
             gameObject.SetActive(false);
             Destroy(gameObject);
+            Debug.Log("Broke up");
             //TODO: add particle effects
         }
     }
