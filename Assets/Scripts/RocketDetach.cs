@@ -5,8 +5,8 @@ using UnityEngine;
 public class RocketDetach : MonoBehaviour
 {
 
-    [SerializeField] float dropSpeed;
-    [SerializeField] int amountOfDebris;
+    [SerializeField] float _dropSpeed;
+    [SerializeField] int _amountOfDebris;
     private bool isDropping;
 
     private void Start()
@@ -19,7 +19,7 @@ public class RocketDetach : MonoBehaviour
         //make stage fall to earth
         if (isDropping)
         {
-            transform.Translate(Vector3.down * dropSpeed * Time.deltaTime);
+            transform.Translate(Vector3.down * _dropSpeed * Time.deltaTime);
         }
         breakIntoDebris();
     }
@@ -27,16 +27,21 @@ public class RocketDetach : MonoBehaviour
 
     void breakIntoDebris()
     {
-        Debug.Log(Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position));
         if (Vector3.Distance(transform.position, GameHandler.HANDLER.Earth.transform.position) <= 60)
         {
             isDropping = false;
-            SpawnDebris(amountOfDebris, transform.position);
+            SpawnDebris(_amountOfDebris, transform.position);
             gameObject.SetActive(false);
             Destroy(gameObject);
             Debug.Log("Broke up");
             //TODO: add particle effects
         }
+    }
+
+    public void Set_Settings(float dropSpeed, int amountOfDebris)
+    {
+        _dropSpeed = dropSpeed;
+        _amountOfDebris = amountOfDebris;
     }
 
 

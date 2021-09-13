@@ -1160,7 +1160,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8549495199797015002}
-  m_Material: {fileID: 13400000, guid: f84642017460d4b4d8f089633ebd1ca7, type: 2}
+  m_Material: {fileID: 13400000, guid: 0c2f8c6636f5d044da2bca404ae3a8fa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1183,6 +1183,8 @@ MonoBehaviour:
   _DebrisLayer:
     serializedVersion: 2
     m_Bits: 64
+  trashSpaceShip: {fileID: 3343226477198407813, guid: 24e7cbc48e8c2434388393ccd82fd20a, type: 3}
+  trashShipSpawn: {fileID: 0}
 --- !u!54 &8549495198815054031
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1193,12 +1195,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1000
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 64
+  m_CollisionDetection: 1
 --- !u!114 &8549495198815054032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,9 +1215,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 2
   _RotateSpeed: 1
-  _Gravity: 150
+  _Gravity: 50
   _EarthCenter: {fileID: 0}
   _CameraCenter: {fileID: 0}
+  thrusterIncreaseSpeed: 0.5
+  maxStartLifeTime: 0
+  outerThrusters:
+  - {fileID: 1452986882048292513}
+  - {fileID: 6650732582588706717}
+  midThruster: {fileID: 5392155227701685987}
 --- !u!1 &8594576615682808702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,6 +1967,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
   m_PrefabInstance: {fileID: 492363998379360297}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1452986882048292513 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
+  m_PrefabInstance: {fileID: 492363998379360297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5670902364652787989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2085,6 +2098,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
   m_PrefabInstance: {fileID: 5670902364652787989}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &6650732582588706717 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
+  m_PrefabInstance: {fileID: 5670902364652787989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6353445684035786859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2209,5 +2227,10 @@ PrefabInstance:
 --- !u!4 &2259826339411360498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5149722297562456729, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
+  m_PrefabInstance: {fileID: 6353445684035786859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5392155227701685987 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1368867427896374920, guid: 3d98541e5dcf9954295d7d324b56962d, type: 3}
   m_PrefabInstance: {fileID: 6353445684035786859}
   m_PrefabAsset: {fileID: 0}

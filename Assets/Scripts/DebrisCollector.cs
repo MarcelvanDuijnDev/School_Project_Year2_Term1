@@ -7,6 +7,8 @@ public class DebrisCollector : MonoBehaviour
     [SerializeField] private float _CollectRange = 5;
     [SerializeField] private float _CollectSpeed;
     [SerializeField] private LayerMask _DebrisLayer;
+    [SerializeField] private GameObject trashSpaceShip;
+    [SerializeField] private Transform trashShipSpawn;
 
     //Objects
     private Collider[] _ObjectsInRange;
@@ -46,6 +48,7 @@ public class DebrisCollector : MonoBehaviour
         if (other.gameObject.name == "GarbageDump" && Input.GetKey(KeyCode.Space))
         {
             GameHandler.DebrisInInventory = 0;
+            Instantiate(trashSpaceShip, trashShipSpawn.position, trashSpaceShip.transform.rotation, transform.parent);
         }
     }
 

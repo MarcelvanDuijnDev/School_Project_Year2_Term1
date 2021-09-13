@@ -30,6 +30,8 @@ public class GameHandler : MonoBehaviour
     public CameraControler CameraControler;
     [SerializeField] private SpawnDebris _SpawnDebris;
     [SerializeField] private Movement _PlayerMovement;
+    [SerializeField] private RocketDetach _FirstStage;
+    [SerializeField] private RocketDetach _SecondStage;
 
     //Private variables
     private GameHandler_Stats _Stats;
@@ -172,7 +174,7 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, float secondsdecrease, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris)
+    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, float secondsdecrease, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris, float stageDropSpeed, int debrisPerStage)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
@@ -183,6 +185,9 @@ public class GameHandler : MonoBehaviour
         _FailsAllowed = mistakesallowed;
         _PlayTestID = playtestid;
         MaxHoldableDebris = maxHoldableDebris;
+
+        _FirstStage.Set_Settings(stageDropSpeed, debrisPerStage);
+        _SecondStage.Set_Settings(stageDropSpeed, debrisPerStage);
         Debug.Log("Settings \n " +
             "MovementSpeed: " + movementincrease + "\n" +
             "RotationSpeed: " + rotationspeed + "\n" +

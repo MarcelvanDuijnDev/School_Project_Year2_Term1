@@ -13,6 +13,7 @@ public class GameSettings : MonoBehaviour
     [Header("Movement")]
     [Range(0, 100)] public float MovementSpeed = 2;
     [Range(0, 100)] public float RotationSpeed = 1;
+    public int StageDropSpeed = 4;
 
     [Header("Lives")]
     public int MistakesAllowed = 2;
@@ -25,6 +26,7 @@ public class GameSettings : MonoBehaviour
     [Header("Debris")]
     public Vector2 MinMaxDebrisSpeed = new Vector2(0.01f,0.03f);
     public int MaxHoldableDebris = 100;
+    public int DebrisPerStage = 20;
 
     [Header("Camera")]
     public bool SkipTransition = false;
@@ -36,6 +38,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris, StageDropSpeed, DebrisPerStage);
     }
 }

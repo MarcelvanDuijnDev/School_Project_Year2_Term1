@@ -2580,12 +2580,14 @@ MonoBehaviour:
   SettingsID: Default
   MovementSpeed: 2
   RotationSpeed: 1
+  StageDropSpeed: 4
   MistakesAllowed: 2
   SecondsBetweenRockets: 50
   SecondsBetweenRocketsIncrease: 0.05
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
   MaxHoldableDebris: 150
+  DebrisPerStage: 20
   SkipTransition: 1
 --- !u!4 &779602913
 Transform:
@@ -15183,6 +15185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 961423008}
     m_Modifications:
+    - target: {fileID: 1864607180, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.095
+      objectReference: {fileID: 0}
     - target: {fileID: 6384344140322126014, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
       propertyPath: m_Name
       value: GarbageDump
@@ -15190,10 +15196,6 @@ PrefabInstance:
     - target: {fileID: 8897244556382914626, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8897244556382914626, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.883468
       objectReference: {fileID: 0}
     - target: {fileID: 8897244556382914626, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20855,6 +20857,8 @@ MonoBehaviour:
   CameraControler: {fileID: 1304682299}
   _SpawnDebris: {fileID: 980673557}
   _PlayerMovement: {fileID: 8549495198815054032}
+  _FirstStage: {fileID: 2971538422933394134, guid: cad110dc0a2431a42a58fb7502929e42, type: 3}
+  _SecondStage: {fileID: 294201687454228629, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}
   _SUSObj: {fileID: 1569493211}
 --- !u!114 &1695090226
 MonoBehaviour:
@@ -21761,6 +21765,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859034696}
   m_CullTransparentMesh: 1
+--- !u!4 &1864607180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1864607180, guid: b49222d2e6a9e2449999410231025dd0, type: 3}
+  m_PrefabInstance: {fileID: 1542225466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892954129
 GameObject:
   m_ObjectHideFlags: 0
@@ -22828,34 +22837,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1290587897}
     m_Modifications:
-    - target: {fileID: 8549495198815054031, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_AngularDrag
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054031, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_Constraints
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054031, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054031, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054031, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: _Speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: _Gravity
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: _EarthCenter
       value: 
@@ -22864,10 +22845,10 @@ PrefabInstance:
       propertyPath: _CameraCenter
       value: 
       objectReference: {fileID: 1712914590}
-    - target: {fileID: 8549495199797014996, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
-      propertyPath: m_Material
+    - target: {fileID: 8549495199797014993, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: trashShipSpawn
       value: 
-      objectReference: {fileID: 13400000, guid: 0c2f8c6636f5d044da2bca404ae3a8fa, type: 2}
+      objectReference: {fileID: 1864607180}
     - target: {fileID: 8549495199797014997, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: m_RootOrder
       value: 3
