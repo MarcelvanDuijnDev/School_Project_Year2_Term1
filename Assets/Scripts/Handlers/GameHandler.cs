@@ -171,6 +171,8 @@ public class GameHandler : MonoBehaviour
         DataHandler.STATS.SaveData();
         _PlayerMovement.Reset();
         _SpawnDebris.Reset();
+        _Timer = 0;
+        TimePlaying = 0;
         MadeFails = 0;
         DebrisCollected = 0;
         DebrisInInventory = 0;
