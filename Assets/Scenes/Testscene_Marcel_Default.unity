@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2721,7 +2721,7 @@ MonoBehaviour:
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
   MaxHoldableDebris: 150
-  DebrisPerStage: 20
+  DebrisPerStage: 200
   SkipTransition: 1
 --- !u!4 &779602913
 Transform:
@@ -22974,6 +22974,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1290587897}
     m_Modifications:
+    - target: {fileID: 1452986882048292513, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392155227701685987, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650732582588706717, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: _EarthCenter
       value: 
