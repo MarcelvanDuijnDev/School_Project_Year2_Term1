@@ -13,8 +13,9 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _DebrisInInventoryText = null;
     [SerializeField] private TextMeshProUGUI _MistakesText = null;
     [SerializeField] private TextMeshProUGUI _NotificationsText = null;
+    [SerializeField] private TextMeshProUGUI _Timer = null;
 
-    private string _Notification = "Starting System... \n";
+    private string _Notification = "";
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class UIHandler : MonoBehaviour
             _DebrisInSpaceText.text = "Debris in space: " + activedebris.ToString();
             _DebrisInInventoryText.text = "Debris in Inventory: " + GameHandler.DebrisInInventory.ToString() + " / " + GameHandler.MaxHoldableDebris.ToString();
             _MistakesText.text = "Mistakes: " + GameHandler.MadeFails.ToString();
+            _Timer.text = string.Format("{0:00}:{1:00}:{2:00}", Mathf.Floor(GameHandler.HANDLER.TimePlaying / 3600), Mathf.Floor((GameHandler.HANDLER.TimePlaying / 60) % 60), GameHandler.HANDLER.TimePlaying % 60);
 
             _NotificationsText.text = _Notification;
         }
@@ -38,7 +40,7 @@ public class UIHandler : MonoBehaviour
 
     public void AddTo_Notifications(string addto)
     {
-        addto += "\n" + _Notification;
+        addto += "\n\n" + _Notification;
         _Notification = addto;
     }
 

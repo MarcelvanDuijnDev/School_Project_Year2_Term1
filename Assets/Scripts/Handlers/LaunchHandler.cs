@@ -13,20 +13,28 @@ public class LaunchHandler : MonoBehaviour
     private float _CurrentTimeBetweenLaunches;
     private int _NextLaunchID;
     private float _Timer;
+    private bool _Started;
 
     void Start()
     {
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
-        _Timer = _CurrentTimeBetweenLaunches - 13;
+        _Timer = _CurrentTimeBetweenLaunches - 20;
 
         NextLaunchID();
-        StartCoroutine(FirstLaunch());
+
     }
 
     void Update()
     {
         if(GameHandler.HANDLER.GameState == GameHandler.GameStates.Ingame)
         {
+            //Check restart
+            if(!_Started)
+            {
+                StartCoroutine(FirstLaunch());
+                _Started = true;
+            }
+
             //Launch
             _Timer += 1 * Time.deltaTime;
             if (_Timer >= _CurrentTimeBetweenLaunches)
@@ -35,8 +43,7 @@ public class LaunchHandler : MonoBehaviour
                 _Timer = 0;
 
                 _NextLaunchID = NextLaunchID();
-                UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString() + " Seconds");
+                StartCoroutine(SendNotification());
             }
 
             if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
@@ -56,7 +63,20 @@ public class LaunchHandler : MonoBehaviour
 
     IEnumerator FirstLaunch()
     {
+        yield return new WaitForSeconds(2);
+        UIHandler.HANDLER.AddTo_Notifications("Starting System...");
+        yield return new WaitForSeconds(2);
+        UIHandler.HANDLER.AddTo_Notifications("Loading Data..");
         yield return new WaitForSeconds(3);
+        UIHandler.HANDLER.AddTo_Notifications("Satellite Connected to ground station.");
+        yield return new WaitForSeconds(5);
+        UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
+                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString() + " Seconds");
+    }
+
+    IEnumerator SendNotification()
+    {
+        yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
                     "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString() + " Seconds");
     }
@@ -86,5 +106,6 @@ public class LaunchHandler : MonoBehaviour
         }
         _Timer = _CurrentTimeBetweenLaunches - 10;
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
+        _Started = false;
     }
 }

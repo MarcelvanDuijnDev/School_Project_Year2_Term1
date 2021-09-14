@@ -33,10 +33,12 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private RocketDetach _FirstStage;
     [SerializeField] private RocketDetach _SecondStage;
 
+    [Header("Info")]
+    public float TimePlaying;
+
     //Private variables
     private GameHandler_Stats _Stats;
     private float _Timer;
-    private float _TimePlaying;
     private string _PlayTestID;
     private LaunchHandler _LaunchHandler;
 
@@ -67,7 +69,7 @@ public class GameHandler : MonoBehaviour
         //Check Gameover
         if (GameState == GameStates.Ingame)
         {
-            _TimePlaying += 1 * Time.deltaTime;
+            TimePlaying += 1 * Time.deltaTime;
         }
 
         if (GameState == GameStates.Menu)
@@ -88,7 +90,7 @@ public class GameHandler : MonoBehaviour
         if (GameState == GameStates.Ingame)
         {
             //Stats
-            _TimePlaying += 1 * Time.deltaTime;
+            TimePlaying += 1 * Time.deltaTime;
 
             //IngameMenu
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -116,7 +118,7 @@ public class GameHandler : MonoBehaviour
         if (MadeFails >= _FailsAllowed)
         { 
             //Set Save Data
-            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = _TimePlaying;
+            DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].TimePlayed = TimePlaying;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DebrisCollected = DebrisCollected;
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].SettingsID = _PlayTestID;
 
@@ -141,7 +143,7 @@ public class GameHandler : MonoBehaviour
         GameState = GameStates.Ingame;
         CameraControler.SetCameraState(1);
         MadeFails = 0;
-        _TimePlaying = 0;
+        TimePlaying = 0;
         ResetGame();
     }
     public void Menu()
