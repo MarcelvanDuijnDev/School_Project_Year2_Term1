@@ -114,7 +114,7 @@ public class RocketHandler : MonoBehaviour
         }
     }
 
-/*    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Astroid")
         {
@@ -122,7 +122,7 @@ public class RocketHandler : MonoBehaviour
             SpawnDebris(amountOfDebris);
             Debug.Log("collision");
         }
-    }*/
+    }
 
 
     private void OnTriggerEnter(Collider other)
