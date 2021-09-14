@@ -69,14 +69,14 @@ public class LaunchHandler : MonoBehaviour
         UIHandler.HANDLER.AddTo_Notifications("Satellite Connected to ground station.");
         yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString() + " Seconds");
+                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString("0") + " Seconds");
     }
 
     IEnumerator SendNotification()
     {
         yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString() + " Seconds");
+                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString("0") + " Seconds");
     }
 
     public void Set_Settings(float timebetweenlaunches, float secondsdecrease)

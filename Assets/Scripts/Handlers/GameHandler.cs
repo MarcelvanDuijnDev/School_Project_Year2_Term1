@@ -174,7 +174,7 @@ public class GameHandler : MonoBehaviour
         _SpawnDebris.Reset();
         _LaunchHandler.Restart();
 
-        _UIHandler.Restart();
+        //_UIHandler.Restart();
 
         _Timer = 0;
         TimePlaying = 0;
