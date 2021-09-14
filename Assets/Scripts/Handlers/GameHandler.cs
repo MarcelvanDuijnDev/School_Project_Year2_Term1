@@ -132,6 +132,8 @@ public class GameHandler : MonoBehaviour
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].DataSettings.GamePlay_SecondsBetweenLaunchIncrease = GameSettings.SETTINGS.SecondsBetweenRocketsIncrease;
             DataHandler.STATS.SaveData();
 
+            Debug.Log("Rockets launched" + DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketsLaunched);
+
             _DeathScreen.SetActive(true);
         }
     }

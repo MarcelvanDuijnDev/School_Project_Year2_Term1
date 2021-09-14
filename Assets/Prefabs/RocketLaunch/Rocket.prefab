@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2206320748238015366}
   - component: {fileID: 8049689896159706416}
+  - component: {fileID: 4043530055869339425}
+  - component: {fileID: 2539370854134817207}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -177,6 +179,36 @@ MonoBehaviour:
   bottomStageDrop: {fileID: 2971538422933394136, guid: cad110dc0a2431a42a58fb7502929e42, type: 3}
   stage1Seperation: 5
   stage2Seperation: 10
+--- !u!136 &4043530055869339425
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364180682810349062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.14
+  m_Height: 9.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.6, z: 0}
+--- !u!54 &2539370854134817207
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364180682810349062}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &390334714398045148
 GameObject:
   m_ObjectHideFlags: 0

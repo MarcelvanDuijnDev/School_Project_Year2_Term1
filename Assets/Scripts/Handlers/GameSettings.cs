@@ -10,6 +10,9 @@ public class GameSettings : MonoBehaviour
     [Header("Settings ID")]
     public string SettingsID = "Default";
 
+    [Header("TimeScale")]
+    public float _TimeScale = 1;
+
     [Header("Movement")]
     [Range(0, 100)] public float MovementSpeed = 2;
     [Range(0, 100)] public float RotationSpeed = 1;
@@ -34,6 +37,7 @@ public class GameSettings : MonoBehaviour
     private void Awake()
     {
         SETTINGS = this;
+        Time.timeScale = _TimeScale;
     }
 
     void Start()

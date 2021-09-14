@@ -43,11 +43,9 @@ public class LaunchHandler : MonoBehaviour
                 _Timer = 0;
 
                 _NextLaunchID = NextLaunchID();
+                _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase;
                 StartCoroutine(SendNotification());
             }
-
-            if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
-                _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase * Time.deltaTime;
         }
     }
 

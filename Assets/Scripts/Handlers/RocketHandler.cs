@@ -114,15 +114,15 @@ public class RocketHandler : MonoBehaviour
         }
     }
 
-/*    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Astroid")
+        if (collision.gameObject.tag == "Astroid")
         {
             Destroy(collision.gameObject);
             SpawnDebris(amountOfDebris);
             Debug.Log("collision");
         }
-    }*/
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -136,7 +136,4 @@ public class RocketHandler : MonoBehaviour
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketCollisions++;
         }
     }
-
-
-
 }

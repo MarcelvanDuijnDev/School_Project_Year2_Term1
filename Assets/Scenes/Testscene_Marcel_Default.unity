@@ -916,6 +916,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266254648}
   m_CullTransparentMesh: 1
+--- !u!198 &372398646 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1452986882048292513, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+  m_PrefabInstance: {fileID: 8549495198815054029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384817973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,6 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingsID: Default
+  _TimeScale: 50
   MovementSpeed: 2
   RotationSpeed: 1
   StageDropSpeed: 4
@@ -9280,6 +9286,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8549495199797014997, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
   m_PrefabInstance: {fileID: 8549495198815054029}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1186727244 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5392155227701685987, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+  m_PrefabInstance: {fileID: 8549495198815054029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197155524
 GameObject:
   m_ObjectHideFlags: 0
@@ -15095,6 +15106,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393458822}
   m_CullTransparentMesh: 1
+--- !u!198 &1436528164 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6650732582588706717, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+  m_PrefabInstance: {fileID: 8549495198815054029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1451909575 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1035405739627497992, guid: dc033752e43806d4699579e4384f5bb7, type: 3}
@@ -22994,6 +23010,18 @@ PrefabInstance:
       propertyPath: _CameraCenter
       value: 
       objectReference: {fileID: 1712914590}
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: _LeftThruster
+      value: 
+      objectReference: {fileID: 1436528164}
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: _RightThruster
+      value: 
+      objectReference: {fileID: 372398646}
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: _CenterThruster
+      value: 
+      objectReference: {fileID: 1186727244}
     - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: maxStartLifeTime
       value: 1
