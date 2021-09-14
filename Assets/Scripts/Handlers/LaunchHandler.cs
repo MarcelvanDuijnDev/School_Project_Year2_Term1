@@ -97,6 +97,8 @@ public class LaunchHandler : MonoBehaviour
 
     public void Restart()
     {
+        StopCoroutine(FirstLaunch());
+        StopCoroutine(SendNotification());
         DataHandler.STATS.CreateNewSave();
         for (int i = 0; i < _LaunchPad.Count; i++)
         {

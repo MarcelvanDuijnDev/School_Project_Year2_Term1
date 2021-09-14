@@ -49,12 +49,19 @@ public class UIHandler : MonoBehaviour
     }
 
     //UI Buttons
-    public void GOTO_Menu() => GameHandler.HANDLER.Menu();
+    public void GOTO_Menu()
+    {
+        GameHandler.HANDLER.Menu();
+    }
     public void GOTO_Turorial()
     {
         GameHandler.HANDLER.CameraControler.SetCameraState(2);
     }
-    public void Restart() => GameHandler.HANDLER.Restart();
+    public void Restart()
+    {
+        GameHandler.HANDLER.Restart();
+        _Notification = "";
+    }
     public void Resume() => GameHandler.HANDLER.Resume();
     public void Play() => GameHandler.HANDLER.Restart();
     public void Quit() => Application.Quit();
