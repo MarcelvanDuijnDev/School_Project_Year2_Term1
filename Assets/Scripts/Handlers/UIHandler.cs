@@ -62,6 +62,9 @@ public class UIHandler : MonoBehaviour
     public void Tutorial_Next()
     {
         _TutorialID++;
+        if (_TutorialID >= _TutorialSlides.Count)
+            _TutorialID = 0;
+
         for (int i = 0; i < _TutorialSlides.Count; i++)
         {
             if (_TutorialID == i)
