@@ -178,12 +178,12 @@ public class GameHandler : MonoBehaviour
     }
 
     //GameSettings
-    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, float secondsdecrease, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris, float stageDropSpeed, int debrisPerStage)
+    public void Set_Settings(float movementincrease, float rotationspeed, int debrisstart, int mistakesallowed, float secondsbetweenrockets, float secondsdecrease, Vector2 minmaxdebrisspeed, string playtestid, bool skiptransition, int maxHoldableDebris, float stageDropSpeed, int debrisPerStage, float transitionspeed)
     {
         _PlayerMovement.Set_Settings(movementincrease,rotationspeed);
         DebrisHandler.DEBRIS.Set_Settings(minmaxdebrisspeed);
         _SpawnDebris.Set_Settings(debrisstart);
-        CameraControler.Set_Settings(skiptransition);
+        CameraControler.Set_Settings(skiptransition,transitionspeed);
 
         _LaunchHandler.Set_Settings(secondsbetweenrockets,secondsdecrease);
         _FailsAllowed = mistakesallowed;

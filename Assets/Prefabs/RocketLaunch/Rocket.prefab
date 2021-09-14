@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8049689896159706416}
   - component: {fileID: 4043530055869339425}
   - component: {fileID: 2539370854134817207}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSpeed: 5
-  amountOfDebris: 0
+  amountOfDebris: 20
   middleStage: {fileID: 1053363245599322698}
   bottomStage: {fileID: 3557277597631977720}
   middleStageDrop: {fileID: 294201687454228633, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}

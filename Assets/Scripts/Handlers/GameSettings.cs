@@ -33,6 +33,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Camera")]
     public bool SkipTransition = false;
+    public float TransitionSpeed = 500;
 
     private void Awake()
     {
@@ -42,6 +43,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris, StageDropSpeed, DebrisPerStage);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris, StageDropSpeed, DebrisPerStage, TransitionSpeed);
     }
 }

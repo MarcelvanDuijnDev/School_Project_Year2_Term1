@@ -41,9 +41,6 @@ public class DebrisCollector : MonoBehaviour
         Gizmos.DrawSphere(transform.position,_CollectRange);
     }
 
-
-
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "GarbageDump" && Input.GetKey(KeyCode.Space))
@@ -52,8 +49,4 @@ public class DebrisCollector : MonoBehaviour
             Instantiate(trashSpaceShip, trashShipSpawn.position, trashSpaceShip.transform.rotation, transform.parent);
         }
     }
-
-
-
-
 }
