@@ -70,8 +70,9 @@ public class CameraControler : MonoBehaviour
         _CameraState = state;
     }
 
-    public void Set_Settings(bool skiptransition)
+    public void Set_Settings(bool skiptransition, float transitionspeed)
     {
         _SkipTransition = skiptransition;
+        _TransitionSpeed = transitionspeed;
     }
 }

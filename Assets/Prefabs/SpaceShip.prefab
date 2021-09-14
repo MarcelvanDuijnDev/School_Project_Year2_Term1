@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CollectRange: 5.1
-  _CollectSpeed: 0.3
+  _CollectSpeed: 1
   _DebrisLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   _Gravity: 50
   _EarthCenter: {fileID: 0}
   _CameraCenter: {fileID: 0}
-  thrusterIncreaseSpeed: 0.5
-  maxStartLifeTime: 0
+  thrusterIncreaseSpeed: 0.1
+  maxStartLifeTime: 1
   outerThrusters:
   - {fileID: 1452986882048292513}
   - {fileID: 6650732582588706717}
