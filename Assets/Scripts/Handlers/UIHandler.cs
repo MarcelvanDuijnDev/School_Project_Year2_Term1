@@ -59,6 +59,7 @@ public class UIHandler : MonoBehaviour
     }
     public void Restart()
     {
+        GameHandler.HANDLER.Restart();
         _Notification = "";
     }
     public void Resume() => GameHandler.HANDLER.Resume();
