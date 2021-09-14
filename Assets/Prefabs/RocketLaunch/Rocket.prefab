@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSpeed: 5
-  amountOfDebris: 20
+  amountOfDebris: 600
   middleStage: {fileID: 1053363245599322698}
   bottomStage: {fileID: 3557277597631977720}
   middleStageDrop: {fileID: 294201687454228633, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}
