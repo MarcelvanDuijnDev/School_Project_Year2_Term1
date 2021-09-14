@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
+  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2717,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingsID: Default
-  _TimeScale: 50
+  _TimeScale: 1
   MovementSpeed: 2
   RotationSpeed: 1
   StageDropSpeed: 4
@@ -21048,6 +21048,33 @@ MonoBehaviour:
   - AudioTrackName: SUS
     Settings:
       AudioClip: {fileID: 8300000, guid: deddfe624aaf3b2488b2bd4b4cb82b64, type: 3}
+      AudioGroup: {fileID: 0}
+      AudioSource: {fileID: 0}
+      CreateAudioSource: 1
+    AudioSettings:
+      Volume: 1
+      Loop: 0
+      PlayOnStart: 0
+    AudioControl:
+      StartAudioOnScene: []
+      StopAudioOnScene: []
+      StopOnNextScene: 0
+      SceneEnabled: 0
+    AudioEffects:
+      FadeIn: 0
+      FadeInDuration: 0
+      FadeInSpeed: 0
+      FadeInDone: 0
+      FadingIn: 0
+      FadeOut: 0
+      FadeOutAfterTime: 0
+      FadeOutDuration: 0
+      FadeOutSpeed: 0
+      FadeOutDone: 0
+      FadingOut: 0
+  - AudioTrackName: CollectDebris
+    Settings:
+      AudioClip: {fileID: 8300000, guid: cfbaccb0f14cbd34585da4420526c197, type: 3}
       AudioGroup: {fileID: 0}
       AudioSource: {fileID: 0}
       CreateAudioSource: 1

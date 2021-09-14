@@ -28,6 +28,7 @@ public class DebrisCollector : MonoBehaviour
                 {
                     GameHandler.DebrisCollected++;
                     GameHandler.DebrisInInventory++;
+                    AudioHandler.AUDIO.PlayTrack("CollectDebris");
                     _ObjectsInRange[i].gameObject.SetActive(false);
                 }
             }
