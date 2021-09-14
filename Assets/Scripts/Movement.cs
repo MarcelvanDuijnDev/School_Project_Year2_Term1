@@ -60,7 +60,8 @@ public class Movement : MonoBehaviour
         float inputx = -Input.GetAxis("Horizontal") * _RotateSpeed;
         float inputy = -Input.GetAxis("Vertical") * _Speed;
         transform.Rotate(0,0, inputx);
-        _RB.AddForce(transform.right * inputy);
+        if (inputy < 0)
+            _RB.AddForce(transform.right * inputy);
     }
 
     void ProcessGravity()
