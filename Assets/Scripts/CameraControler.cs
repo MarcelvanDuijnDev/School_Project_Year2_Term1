@@ -17,6 +17,7 @@ public class CameraControler : MonoBehaviour
     [Header("CameraPositions")]
     [SerializeField] private Transform _IngamePoisition = null;
     [SerializeField] private Transform _MenuCameraPosition = null;
+    [SerializeField] private Transform _TutorialPosition = null;
 
     [Header("Trasition")]
     [SerializeField] private float _TransitionSpeed = 500;
@@ -41,6 +42,12 @@ public class CameraControler : MonoBehaviour
                         transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, _TransitionSpeed * Time.deltaTime);
                     else
                         transform.position = Vector3.MoveTowards(transform.position, _IngamePoisition.position, 10000 * Time.deltaTime);
+                    break;
+                case 2:
+                    if (!_SkipTransition)
+                        transform.position = Vector3.MoveTowards(transform.position, _TutorialPosition.position, _TransitionSpeed * Time.deltaTime);
+                    else
+                        transform.position = Vector3.MoveTowards(transform.position, _TutorialPosition.position, 10000 * Time.deltaTime);
                     break;
             }
         }
