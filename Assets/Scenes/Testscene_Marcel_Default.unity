@@ -3503,11 +3503,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsID: Default
   _TimeScale: 1
-  MovementSpeed: 2.5
-  RotationSpeed: 1.5
+  MovementSpeed: 3
+  RotationSpeed: 4
   StageDropSpeed: 4
   MistakesAllowed: 2
-  SecondsBetweenRockets: 50
+  SecondsBetweenRockets: 30
   SecondsBetweenRocketsIncrease: 0.05
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
@@ -4752,7 +4752,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: You can dispose the garbage by moving the spaceship onto the green circle
-    and pressing space.
+    and pressing spacebar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23159,6 +23159,7 @@ MonoBehaviour:
   _PlayerMovement: {fileID: 8549495198815054032}
   _FirstStage: {fileID: 2971538422933394134, guid: cad110dc0a2431a42a58fb7502929e42, type: 3}
   _SecondStage: {fileID: 294201687454228629, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}
+  _UIHandler: {fileID: 2036179460}
   TimePlaying: 0
   _SUSObj: {fileID: 1569493211}
 --- !u!114 &1695090226
@@ -25826,6 +25827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1290587897}
     m_Modifications:
+    - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+      propertyPath: _Gravity
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8549495198815054032, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
       propertyPath: _EarthCenter
       value: 

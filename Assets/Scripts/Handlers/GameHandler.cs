@@ -32,6 +32,7 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private Movement _PlayerMovement;
     [SerializeField] private RocketDetach _FirstStage;
     [SerializeField] private RocketDetach _SecondStage;
+    [SerializeField] private UIHandler _UIHandler;
 
     [Header("Info")]
     public float TimePlaying;
@@ -171,6 +172,10 @@ public class GameHandler : MonoBehaviour
         DataHandler.STATS.SaveData();
         _PlayerMovement.Reset();
         _SpawnDebris.Reset();
+        _LaunchHandler.Restart();
+
+        _UIHandler.Restart();
+
         _Timer = 0;
         TimePlaying = 0;
         MadeFails = 0;
