@@ -24,7 +24,7 @@ public class DebrisCollector : MonoBehaviour
             {
                 _ObjectsInRange[i].transform.position = Vector3.MoveTowards(_ObjectsInRange[i].transform.position, transform.position, _CollectSpeed);
 
-                if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 0.5f)
+                if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 1f)
                 {
                     GameHandler.DebrisCollected++;
                     GameHandler.DebrisInInventory++;

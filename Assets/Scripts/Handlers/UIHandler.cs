@@ -15,6 +15,10 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _NotificationsText = null;
     [SerializeField] private TextMeshProUGUI _Timer = null;
 
+    [Header("Tutorial")]
+    [SerializeField] private List<GameObject> _TutorialSlides = new List<GameObject>();
+    private int _TutorialID;
+
     private string _Notification = "";
 
     private void Awake()
@@ -46,9 +50,32 @@ public class UIHandler : MonoBehaviour
 
     //UI Buttons
     public void GOTO_Menu() => GameHandler.HANDLER.Menu();
+    public void GOTO_Turorial()
+    {
+        GameHandler.HANDLER.CameraControler.SetCameraState(2);
+    }
     public void Restart() => GameHandler.HANDLER.Restart();
     public void Resume() => GameHandler.HANDLER.Resume();
     public void Play() => GameHandler.HANDLER.Restart();
     public void Quit() => Application.Quit();
 
+    public void Tutorial_Next()
+    {
+        _TutorialID++;
+        if (_TutorialID >= _TutorialSlides.Count)
+            _TutorialID = 0;
+
+        for (int i = 0; i < _TutorialSlides.Count; i++)
+        {
+            if (_TutorialID == i)
+                _TutorialSlides[i].SetActive(true);
+            else
+                _TutorialSlides[i].SetActive(false);
+        }
+    }
+    public void Tutorial_Back()
+    {
+        GameHandler.HANDLER.CameraControler.SetCameraState(0);
+        _TutorialID = 0;
+    }
 }
