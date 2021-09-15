@@ -13,7 +13,6 @@ public class DebrisCollector : MonoBehaviour
     //Objects
     private Collider[] _ObjectsInRange;
 
-
     void Update()
     {
         _ObjectsInRange = Physics.OverlapSphere(transform.position, _CollectRange, _DebrisLayer);
@@ -48,5 +47,10 @@ public class DebrisCollector : MonoBehaviour
             GameHandler.DebrisInInventory = 0;
             Instantiate(trashSpaceShip, trashShipSpawn.position, trashSpaceShip.transform.rotation, transform.parent);
         }
+    }
+
+    public void Set_Settings(float range)
+    {
+        _CollectRange = range;
     }
 }

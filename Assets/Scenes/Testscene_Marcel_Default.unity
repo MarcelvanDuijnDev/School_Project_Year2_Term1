@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
+  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3092,6 +3092,17 @@ Transform:
   m_Father: {fileID: 2038956063}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &699263386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8549495199797014993, guid: 618f2c9378333f94d87f07746d82b06d, type: 3}
+  m_PrefabInstance: {fileID: 8549495198815054029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809862c964cf68c43b5208f23aad717a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &702768656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3522,7 @@ MonoBehaviour:
   SecondsBetweenRocketsIncrease: 0.05
   StartDebris: 2000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
+  DebrisRange: 5
   MaxHoldableDebris: 300
   DebrisPerStage: 200
   SkipTransition: 0
@@ -23160,6 +23172,7 @@ MonoBehaviour:
   _FirstStage: {fileID: 2971538422933394134, guid: cad110dc0a2431a42a58fb7502929e42, type: 3}
   _SecondStage: {fileID: 294201687454228629, guid: 321f5010112848d4b9cbf0a18da233ae, type: 3}
   _UIHandler: {fileID: 2036179460}
+  _DebrisCollector: {fileID: 699263386}
   TimePlaying: 0
   _SUSObj: {fileID: 1569493211}
 --- !u!114 &1695090226
@@ -23229,7 +23242,7 @@ MonoBehaviour:
       AudioSource: {fileID: 0}
       CreateAudioSource: 1
     AudioSettings:
-      Volume: 1
+      Volume: 0
       Loop: 0
       PlayOnStart: 0
     AudioControl:

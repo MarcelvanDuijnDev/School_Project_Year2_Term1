@@ -28,6 +28,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Debris")]
     public Vector2 MinMaxDebrisSpeed = new Vector2(0.01f,0.03f);
+    public float DebrisRange = 5;
     public int MaxHoldableDebris = 100;
     public int DebrisPerStage = 20;
 
@@ -43,6 +44,6 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
-        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris, StageDropSpeed, DebrisPerStage, TransitionSpeed);
+        GameHandler.HANDLER.Set_Settings(MovementSpeed, RotationSpeed, StartDebris, MistakesAllowed, SecondsBetweenRockets, SecondsBetweenRocketsIncrease, MinMaxDebrisSpeed, SettingsID, SkipTransition, MaxHoldableDebris, StageDropSpeed, DebrisPerStage, TransitionSpeed, DebrisRange);
     }
 }
