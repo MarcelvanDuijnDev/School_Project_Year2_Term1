@@ -23229,7 +23229,7 @@ MonoBehaviour:
       AudioSource: {fileID: 0}
       CreateAudioSource: 1
     AudioSettings:
-      Volume: 0
+      Volume: 1
       Loop: 0
       PlayOnStart: 0
     AudioControl:
