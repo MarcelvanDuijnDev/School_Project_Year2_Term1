@@ -141,9 +141,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb81c0730918d04ab829da0a2410723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocketPrefab: {fileID: 364180682810349062, guid: d08b1cf8f2d9ec14e8e5fb5566e2bd09, type: 3}
   rocketSpeed: 20
   launchPosition: {fileID: 463955973}
+  _UseRandom: 1
+  _RocketID: 0
+  _RocketPrefabs:
+  - {fileID: 3231769871388711370, guid: cc09dfee8e5571b479f516dfe8a309aa, type: 3}
+  - {fileID: 5077185352619560060, guid: d3af13a1c5216fe4ba147882f6c3f34d, type: 3}
+  - {fileID: 7226344321235467282, guid: 9dead891c2bce614a908d1fa06cbe09f, type: 3}
+  - {fileID: 5569455608913081870, guid: 7ad7462c90549584191a4b82527e6148, type: 3}
+  - {fileID: 4356767452820103360, guid: d0a8bb68dff023241a361bcc5ecc1aff, type: 3}
 --- !u!120 &2754142431834224733
 LineRenderer:
   m_ObjectHideFlags: 0
