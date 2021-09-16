@@ -5,11 +5,14 @@ using UnityEngine;
 public class RocketLaunch : MonoBehaviour
 {
     //rocket
-    [SerializeField] GameObject rocketPrefab;
     [SerializeField] float rocketSpeed;
     [SerializeField] Transform launchPosition;
     Vector3 launchDirection;
 
+    [Header("Rocket")]
+    [SerializeField] private bool _UseRandom = true;
+    [SerializeField] private int _RocketID;
+    [SerializeField] private List<GameObject> _RocketPrefabs = new List<GameObject>();
 
     //trajectory
     /*    [SerializeField] GameObject dotPrefab;
@@ -34,7 +37,14 @@ public class RocketLaunch : MonoBehaviour
         launchDirection = Vector3.up;
 
         //instantiate rocket above platform with speed and direction
-        Instantiate(rocketPrefab, launchPosition.position, transform.rotation, transform);
+
+        int rocketid = 0;
+        if (_UseRandom)
+            rocketid = Random.Range(0, _RocketPrefabs.Count);
+        else
+            rocketid = _RocketID;
+
+        Instantiate(_RocketPrefabs[rocketid], launchPosition.position, transform.rotation, transform);
 
     }
 

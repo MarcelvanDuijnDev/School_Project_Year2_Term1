@@ -8,12 +8,13 @@ public class LaunchHandler : MonoBehaviour
     [SerializeField] private List<Launchpad> _LaunchPad = new List<Launchpad>();
     [SerializeField] private float _TimeBetweenLaunches = 50;
     [SerializeField] private float _MinTimeBetweenLaunches = 10;
-    [SerializeField] private float _TimeBetweenLaunches_Increase = 0.1f;
+    [SerializeField] private float _TimeBetweenLaunches_Increase = 1f;
 
     private float _CurrentTimeBetweenLaunches;
     private int _NextLaunchID;
     private float _Timer;
     private bool _Started;
+    private bool _FirstLaunch;
 
     void Start()
     {
@@ -39,12 +40,17 @@ public class LaunchHandler : MonoBehaviour
             _Timer += 1 * Time.deltaTime;
             if (_Timer >= _CurrentTimeBetweenLaunches)
             {
-                _LaunchPad[_NextLaunchID].Launch();
+                if (!_FirstLaunch)
+                    _FirstLaunch = true;
+                else
+                    _LaunchPad[_NextLaunchID].Launch();
+
+
                 _Timer = 0;
 
                 _NextLaunchID = NextLaunchID();
                 if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
-                    _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase;
+                    _CurrentTimeBetweenLaunches -= Random.Range(0,_TimeBetweenLaunches_Increase);
                 StartCoroutine(SendNotification());
             }
         }
@@ -74,7 +80,7 @@ public class LaunchHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: ", (_CurrentTimeBetweenLaunches - _Timer), " Seconds", _NextLaunchID);
+                    "Launching in: ", (_CurrentTimeBetweenLaunches - _Timer + 10), " Seconds", _NextLaunchID);
     }
 
     public void Set_Settings(float timebetweenlaunches, float secondsdecrease)
@@ -104,6 +110,7 @@ public class LaunchHandler : MonoBehaviour
         }
         _Timer = _CurrentTimeBetweenLaunches - 10;
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
+        _FirstLaunch = false;
         _Started = false;
     }
 

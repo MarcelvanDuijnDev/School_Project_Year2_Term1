@@ -100,9 +100,15 @@ public class UIHandler : MonoBehaviour
     {
         GameHandler.HANDLER.Restart();
         _Notification = "";
+        _Notifications.Clear();
     }
     public void Resume() => GameHandler.HANDLER.Resume();
-    public void Play() => GameHandler.HANDLER.Restart();
+    public void Play()
+    {
+        GameHandler.HANDLER.Restart();
+        _Notification = "";
+        _Notifications.Clear();
+    }
     public void Quit() => Application.Quit();
 
     public void Tutorial_Next()
