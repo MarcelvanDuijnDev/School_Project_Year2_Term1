@@ -14,6 +14,7 @@ public class LaunchHandler : MonoBehaviour
     private int _NextLaunchID;
     private float _Timer;
     private bool _Started;
+    private bool _FirstLaunch;
 
     void Start()
     {
@@ -39,7 +40,12 @@ public class LaunchHandler : MonoBehaviour
             _Timer += 1 * Time.deltaTime;
             if (_Timer >= _CurrentTimeBetweenLaunches)
             {
-                _LaunchPad[_NextLaunchID].Launch();
+                if (!_FirstLaunch)
+                    _FirstLaunch = true;
+                else
+                    _LaunchPad[_NextLaunchID].Launch();
+
+
                 _Timer = 0;
 
                 _NextLaunchID = NextLaunchID();
@@ -104,6 +110,7 @@ public class LaunchHandler : MonoBehaviour
         }
         _Timer = _CurrentTimeBetweenLaunches - 10;
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
+        _FirstLaunch = false;
         _Started = false;
     }
 
