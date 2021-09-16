@@ -80,7 +80,7 @@ public class LaunchHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: ", (_CurrentTimeBetweenLaunches - _Timer), " Seconds", _NextLaunchID);
+                    "Launching in: ", (_CurrentTimeBetweenLaunches - _Timer + 10), " Seconds", _NextLaunchID);
     }
 
     public void Set_Settings(float timebetweenlaunches, float secondsdecrease)

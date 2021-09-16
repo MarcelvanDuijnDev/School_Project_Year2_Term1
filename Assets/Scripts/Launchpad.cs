@@ -8,7 +8,7 @@ public class Launchpad : MonoBehaviour
     public string Name;
 
     [Header("Settings")]
-    [SerializeField] private float _SecondsAlive;
+    private float _SecondsAlive = 10;
     [SerializeField] private RocketLaunch _RocketPort;
 
     //Private Variables
