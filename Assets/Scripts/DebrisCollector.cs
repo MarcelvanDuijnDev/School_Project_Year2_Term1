@@ -27,10 +27,13 @@ public class DebrisCollector : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, _ObjectsInRange[i].transform.position) <= 1f)
                 {
-                    GameHandler.DebrisCollected++;
-                    GameHandler.DebrisInInventory++;
-                    AudioHandler.AUDIO.PlayTrack("CollectDebris");
-                    _ObjectsInRange[i].gameObject.SetActive(false);
+                    if (GameHandler.DebrisInInventory < GameHandler.MaxHoldableDebris)
+                    {
+                        GameHandler.DebrisCollected++;
+                        GameHandler.DebrisInInventory++;
+                        AudioHandler.AUDIO.PlayTrack("CollectDebris");
+                        _ObjectsInRange[i].gameObject.SetActive(false);
+                    }
                 }
             }
         }
