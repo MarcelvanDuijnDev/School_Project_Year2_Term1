@@ -12,6 +12,7 @@ public class LaunchHandler : MonoBehaviour
 
     private float _CurrentTimeBetweenLaunches;
     private int _NextLaunchID;
+    private int _CheckPrevLaunchID;
     private float _Timer;
     private bool _Started;
     private bool _FirstLaunch;
@@ -22,7 +23,7 @@ public class LaunchHandler : MonoBehaviour
         _Timer = _CurrentTimeBetweenLaunches - 20;
 
         NextLaunchID();
-
+        _CheckPrevLaunchID = _NextLaunchID;
     }
 
     void Update()
@@ -48,7 +49,7 @@ public class LaunchHandler : MonoBehaviour
 
                 _Timer = 0;
 
-                _NextLaunchID = NextLaunchID();
+                NextLaunchID();
                 if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
                     _CurrentTimeBetweenLaunches -= Random.Range(0,_TimeBetweenLaunches_Increase);
                 StartCoroutine(SendNotification());
@@ -56,14 +57,13 @@ public class LaunchHandler : MonoBehaviour
         }
     }
 
-    private int NextLaunchID()
+    private void NextLaunchID()
     {
-        int newid = Random.Range(0, _LaunchPad.Count);
-        if (newid == _NextLaunchID)
-        {
+        _NextLaunchID = Random.Range(0, _LaunchPad.Count);
+        if (_CheckPrevLaunchID == _NextLaunchID)
             NextLaunchID();
-        }
-        return newid;
+        else
+            _CheckPrevLaunchID = _NextLaunchID;
     }
 
     IEnumerator FirstLaunch()

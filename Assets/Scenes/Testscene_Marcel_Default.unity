@@ -956,18 +956,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 266254653}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &266254651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,18 +1364,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2036179460}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: Quit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 390324821}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2461,18 +2437,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 613211296}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &613211294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,18 +2655,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2036179460}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: GOTO_Menu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 674678007}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3347,8 +3299,8 @@ MonoBehaviour:
   StageDropSpeed: 4
   MistakesAllowed: 2
   SecondsBetweenRockets: 30
-  SecondsBetweenRocketsIncrease: 0.05
-  StartDebris: 0
+  SecondsBetweenRocketsIncrease: 2
+  StartDebris: 3000
   MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
   DebrisRange: 5
   MaxHoldableDebris: 300
@@ -3574,18 +3526,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 798941374}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &798941372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,7 +3546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35a89889ffe01e24fb53d2177b4e18de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07bbfd56f4b496842b37dabc0ac765e9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4828,18 +4768,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1022858711}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1022858713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4994,18 +4922,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2036179460}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: Tutorial_Back
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1067567131}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15739,18 +15655,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1341343846}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1341343844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16059,18 +15963,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2036179460}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: Tutorial_Next
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1366940201}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23980,18 +23872,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2036179460}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: GOTO_Menu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2016491856}
-        m_TargetAssemblyTypeName: UIEffects, Assembly-CSharp
-        m_MethodName: ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
