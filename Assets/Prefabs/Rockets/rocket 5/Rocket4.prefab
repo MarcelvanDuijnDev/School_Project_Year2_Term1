@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketSpeed: 5
   amountOfDebris: 600
-  middleStage: {fileID: 0}
-  bottomStage: {fileID: 0}
+  middleStage: {fileID: 3127282406353256218}
+  bottomStage: {fileID: 6842063369941342889}
   middleStageDrop: {fileID: 4482079358159367000, guid: 84e0979ce851f4a4891cfa16729484a4, type: 3}
   bottomStageDrop: {fileID: 8814072635990431598, guid: 68d2a5c596225e540921a0db0e5094ec, type: 3}
   stage1Seperation: 5
@@ -238,6 +238,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6741068760579329938, guid: 947d5685b7f6efe4f89ee9fff8d19ae2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 947d5685b7f6efe4f89ee9fff8d19ae2, type: 3}
+--- !u!1 &6842063369941342889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9038232581653862240, guid: 947d5685b7f6efe4f89ee9fff8d19ae2, type: 3}
+  m_PrefabInstance: {fileID: 2566388537860017609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6176744951571841043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8513369042707762650, guid: 947d5685b7f6efe4f89ee9fff8d19ae2, type: 3}
@@ -375,6 +380,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6039590793767055294, guid: 83d682cfd0dab4340aef82fbe2133c53, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d682cfd0dab4340aef82fbe2133c53, type: 3}
+--- !u!1 &3127282406353256218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8146523206180852854, guid: 83d682cfd0dab4340aef82fbe2133c53, type: 3}
+  m_PrefabInstance: {fileID: 6514480458311494508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2318657177649407392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8810609999728512716, guid: 83d682cfd0dab4340aef82fbe2133c53, type: 3}
