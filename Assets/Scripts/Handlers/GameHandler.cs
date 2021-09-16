@@ -137,6 +137,8 @@ public class GameHandler : MonoBehaviour
             Debug.Log("Rockets launched" + DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketsLaunched);
 
             _DeathScreen.SetActive(true);
+
+            AudioHandler.AUDIO.PlayTrack("YouLose");
         }
     }
 
@@ -270,6 +272,11 @@ public class GameHandler : MonoBehaviour
                 _SUS = 0;
                 break;
         }
+    }
+
+    public int PlatformAmount()
+    {
+        return _LaunchHandler.TotalLaunchPorts();
     }
 }
 

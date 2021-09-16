@@ -50,6 +50,7 @@ public class Launchpad : MonoBehaviour
                 break;
             case 2:
                 _RocketPort.LaunchRocket();
+                AudioHandler.AUDIO.PlayTrack("RocketLaunch");
                 _State = 0;
                 break;
         }

@@ -43,7 +43,8 @@ public class LaunchHandler : MonoBehaviour
                 _Timer = 0;
 
                 _NextLaunchID = NextLaunchID();
-                _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase;
+                if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
+                    _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase;
                 StartCoroutine(SendNotification());
             }
         }
@@ -67,16 +68,13 @@ public class LaunchHandler : MonoBehaviour
         UIHandler.HANDLER.AddTo_Notifications("Loading Data..");
         yield return new WaitForSeconds(3);
         UIHandler.HANDLER.AddTo_Notifications("Satellite Connected to ground station.");
-        yield return new WaitForSeconds(5);
-        UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString("0") + " Seconds");
     }
 
     IEnumerator SendNotification()
     {
         yield return new WaitForSeconds(5);
         UIHandler.HANDLER.AddTo_Notifications("Next Launch location: " + _LaunchPad[_NextLaunchID].Name + "\n" +
-                    "Launching in: " + (_CurrentTimeBetweenLaunches - _Timer).ToString("0") + " Seconds");
+                    "Launching in: ", (_CurrentTimeBetweenLaunches - _Timer), " Seconds", _NextLaunchID);
     }
 
     public void Set_Settings(float timebetweenlaunches, float secondsdecrease)
@@ -107,5 +105,10 @@ public class LaunchHandler : MonoBehaviour
         _Timer = _CurrentTimeBetweenLaunches - 10;
         _CurrentTimeBetweenLaunches = _TimeBetweenLaunches;
         _Started = false;
+    }
+
+    public int TotalLaunchPorts()
+    {
+        return _LaunchPad.Count;
     }
 }

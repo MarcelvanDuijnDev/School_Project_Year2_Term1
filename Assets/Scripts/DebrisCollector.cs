@@ -10,6 +10,8 @@ public class DebrisCollector : MonoBehaviour
     [SerializeField] private GameObject trashSpaceShip;
     [SerializeField] private Transform trashShipSpawn;
 
+    private bool _CargoFullCheck = false;
+
     //Objects
     private Collider[] _ObjectsInRange;
 
@@ -32,6 +34,14 @@ public class DebrisCollector : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if(!_CargoFullCheck)
+            {
+                AudioHandler.AUDIO.PlayTrack("SpaceShipFull");
+                _CargoFullCheck = true;
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -46,6 +56,8 @@ public class DebrisCollector : MonoBehaviour
         {
             GameHandler.DebrisInInventory = 0;
             Instantiate(trashSpaceShip, trashShipSpawn.position, trashSpaceShip.transform.rotation, transform.parent);
+            AudioHandler.AUDIO.PlayTrack("Dropoff");
+            _CargoFullCheck = false;
         }
     }
 

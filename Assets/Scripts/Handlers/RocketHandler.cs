@@ -101,7 +101,7 @@ public class RocketHandler : MonoBehaviour
             case 1:
                 bottomStage.SetActive(false);
                 Instantiate(bottomStageDrop, bottomStage.transform.position, bottomStage.transform.rotation, transform.parent.parent.parent);
-
+                AudioHandler.AUDIO.PlayTrack("RocketDecouple");
                 Debug.Log("Stage 1 Separated");
                 stage = 0;
                 break;
@@ -114,17 +114,6 @@ public class RocketHandler : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Astroid")
-        {
-            Destroy(collision.gameObject);
-            SpawnDebris(amountOfDebris);
-            Debug.Log("collision");
-        }
-    }
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Astroid")
@@ -134,6 +123,7 @@ public class RocketHandler : MonoBehaviour
             GameHandler.HANDLER.RocketExploded();
             SpawnDebris(amountOfDebris);
             DataHandler.STATS._SaveData.saveData[DataHandler.STATS._SaveData.saveData.Count - 1].RocketCollisions++;
+            AudioHandler.AUDIO.PlayTrack("RocketExplotion");
         }
     }
 }

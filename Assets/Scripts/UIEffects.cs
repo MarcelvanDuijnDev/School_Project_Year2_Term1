@@ -9,6 +9,7 @@ public class UIEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private UIEffectOptions _UIEffect = UIEffectOptions.Grow;
     [SerializeField] private Vector3 _MinDefaultMaxSize = new Vector3(0.9f,1f,1.1f);
     [SerializeField] private float _IncreaseSpeed = 1;
+    [SerializeField] private bool _Sound = true;
 
     private Vector3 _OriginalSize;
     private bool _MouseOver;
@@ -51,11 +52,18 @@ public class UIEffects : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!_MouseOver)
+            AudioHandler.AUDIO.PlayTrack("Menu_Button");
         _MouseOver = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _MouseOver = false;
+    }
+
+    public void ButtonClicked()
+    {
+        AudioHandler.AUDIO.PlayTrack("Menu_Click");
     }
 }

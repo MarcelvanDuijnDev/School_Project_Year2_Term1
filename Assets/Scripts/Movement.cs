@@ -61,7 +61,14 @@ public class Movement : MonoBehaviour
         float inputy = -Input.GetAxis("Vertical") * _Speed;
         transform.Rotate(0,0, inputx);
         if (inputy < 0)
+        {
             _RB.AddForce(transform.right * inputy);
+            AudioHandler.AUDIO.StartTrack("Acceleration");
+        }
+        else
+        {
+            AudioHandler.AUDIO.StopTrack("Acceleration");
+        }
     }
 
     void ProcessGravity()
