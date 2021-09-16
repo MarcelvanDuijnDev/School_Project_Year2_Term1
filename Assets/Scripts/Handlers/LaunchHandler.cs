@@ -8,7 +8,7 @@ public class LaunchHandler : MonoBehaviour
     [SerializeField] private List<Launchpad> _LaunchPad = new List<Launchpad>();
     [SerializeField] private float _TimeBetweenLaunches = 50;
     [SerializeField] private float _MinTimeBetweenLaunches = 10;
-    [SerializeField] private float _TimeBetweenLaunches_Increase = 0.1f;
+    [SerializeField] private float _TimeBetweenLaunches_Increase = 1f;
 
     private float _CurrentTimeBetweenLaunches;
     private int _NextLaunchID;
@@ -50,7 +50,7 @@ public class LaunchHandler : MonoBehaviour
 
                 _NextLaunchID = NextLaunchID();
                 if (_CurrentTimeBetweenLaunches > _MinTimeBetweenLaunches)
-                    _CurrentTimeBetweenLaunches -= _TimeBetweenLaunches_Increase;
+                    _CurrentTimeBetweenLaunches -= Random.Range(0,_TimeBetweenLaunches_Increase);
                 StartCoroutine(SendNotification());
             }
         }
