@@ -72,6 +72,13 @@ public class GameHandler : MonoBehaviour
         if (GameState == GameStates.Ingame)
         {
             TimePlaying += 1 * Time.deltaTime;
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                ResetGame();
+                Restart();
+                _UIHandler.Restart();
+            }
+
         }
 
         if (GameState == GameStates.Menu)
@@ -105,6 +112,8 @@ public class GameHandler : MonoBehaviour
             GameState = GameStates.Dead;
             _DeathScreen.SetActive(true);
         }
+
+
 
         SUS();
     }
@@ -176,8 +185,6 @@ public class GameHandler : MonoBehaviour
         _PlayerMovement.Reset();
         _SpawnDebris.Reset();
         _LaunchHandler.Restart();
-
-        //_UIHandler.Restart();
 
         _Timer = 0;
         TimePlaying = 0;

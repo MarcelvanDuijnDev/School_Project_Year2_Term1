@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
+  m_IndirectSpecularColor: {r: 0.031131228, g: 0.009468952, b: 0.013015968, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3843,12 +3843,12 @@ MonoBehaviour:
   StageDropSpeed: 4
   MistakesAllowed: 2
   SecondsBetweenRockets: 30
-  SecondsBetweenRocketsIncrease: 0.05
-  StartDebris: 200
-  MinMaxDebrisSpeed: {x: 0.01, y: 0.03}
+  SecondsBetweenRocketsIncrease: 2
+  StartDebris: 3000
+  MinMaxDebrisSpeed: {x: 0.005, y: 0.01}
   DebrisRange: 5
   MaxHoldableDebris: 300
-  DebrisPerStage: 200
+  DebrisPerStage: 120
   SkipTransition: 0
   TransitionSpeed: 1000
 --- !u!4 &779602913
