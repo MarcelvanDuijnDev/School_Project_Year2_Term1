@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingsID: Default
-  _TimeScale: 5
+  _TimeScale: 1
   MovementSpeed: 3
   RotationSpeed: 4
   StageDropSpeed: 4
